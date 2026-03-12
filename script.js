@@ -47,9 +47,47 @@ const overlay = document.querySelector('.modal-overlay');
 const modalRequestButton = document.getElementById('modalRequestBtn');
 const whatsappForm = document.getElementById('whatsappForm');
 const templateChoice = document.getElementById('templateChoice');
+const floatingWhatsappButton = document.getElementById('floatingWhatsapp');
+const installAppButton = document.getElementById('installAppBtn');
 
 const WHATSAPP_NUMBER = '5490000000000';
 let selectedTemplateKey = '';
+let installPromptEvent = null;
+
+const resolveTemplate = () => {
+  if (templateChoice && templateChoice.value) {
+    return templateChoice.value;
+  }
+  return selectedTemplateKey;
+};
+
+const buildWhatsappLink = ({ name = '', business = '', template = '', goal = '', source = '' }) => {
+  const templateLabel = previewData[template]?.tag || 'Plantilla web personalizada';
+  const messageLines = ['Hola, quiero digitalizar mi negocio con una plantilla web.'];
+
+  if (name) {
+    messageLines.push(`Mi nombre es ${name}.`);
+  }
+
+  if (business) {
+    messageLines.push(`Negocio: ${business}.`);
+  }
+
+  messageLines.push(`Plantilla de interes: ${templateLabel}.`);
+
+  if (goal) {
+    messageLines.push(`Objetivo principal: ${goal}.`);
+  }
+
+  if (source) {
+    messageLines.push(`Canal de contacto: ${source}.`);
+  }
+
+  messageLines.push('Quiero recibir una propuesta y siguientes pasos para empezar.');
+
+  const encodedMessage = encodeURIComponent(messageLines.join('\n'));
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+};
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -159,22 +197,74 @@ if (whatsappForm) {
       return;
     }
 
-    const templateLabel = previewData[template]?.tag || template;
-    const messageLines = [
-      'Hola, quiero digitalizar mi negocio con una plantilla web.',
-      `Mi nombre es ${name}.`,
-      `Negocio: ${business}.`,
-      `Plantilla de interes: ${templateLabel}.`
-    ];
+    const link = buildWhatsappLink({
+      name,
+      business,
+      template,
+      goal,
+      source: 'Formulario Web'
+    });
 
-    if (goal) {
-      messageLines.push(`Objetivo principal: ${goal}.`);
+    window.open(link, '_blank', 'noopener,noreferrer');
+  });
+}
+
+if (floatingWhatsappButton) {
+  floatingWhatsappButton.addEventListener('click', () => {
+    const template = resolveTemplate();
+
+    const nameValue = document.getElementById('clientName')?.value?.trim() || '';
+    const businessValue = document.getElementById('businessName')?.value?.trim() || '';
+    const goalValue = document.getElementById('goal')?.value?.trim() || '';
+
+    const link = buildWhatsappLink({
+      name: nameValue,
+      business: businessValue,
+      template,
+      goal: goalValue,
+      source: 'Boton Flotante'
+    });
+
+    window.open(link, '_blank', 'noopener,noreferrer');
+  });
+}
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  installPromptEvent = event;
+
+  if (installAppButton) {
+    installAppButton.classList.remove('hidden');
+  }
+});
+
+if (installAppButton) {
+  installAppButton.addEventListener('click', async () => {
+    if (!installPromptEvent) {
+      return;
     }
 
-    messageLines.push('Quiero recibir una propuesta y siguientes pasos para empezar.');
+    installPromptEvent.prompt();
+    const result = await installPromptEvent.userChoice;
 
-    const encodedMessage = encodeURIComponent(messageLines.join('\n'));
-    const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    window.open(link, '_blank', 'noopener,noreferrer');
+    if (result.outcome === 'accepted') {
+      installAppButton.classList.add('hidden');
+    }
+
+    installPromptEvent = null;
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  if (installAppButton) {
+    installAppButton.classList.add('hidden');
+  }
+});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {
+      // Ignore registration errors in unsupported contexts.
+    });
   });
 }

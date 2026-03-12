@@ -1,0 +1,11 @@
+{
+  "name": "Impulso Emprendedor",
+  "short_name": "Impulso App",
+  "description": "Catalogo de plantillas web para digitalizar negocios.",
+  "start_url": "/ImpulsoEmprendedor-/",
+  "scope": "/ImpulsoEmprendedor-/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#14567a",
+  "lang": "es"
+}

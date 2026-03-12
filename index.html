@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#14567a" />
   <title>Catalogo de Plantillas Web | Impulso Emprendedor</title>
   <meta name="description" content="Plantillas web listas para vender: ecommerce, servicios y food menu con carrito a WhatsApp y panel de metricas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +35,7 @@
       }
     };
   </script>
+  <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
@@ -43,7 +45,10 @@
     <div class="mx-auto max-w-6xl px-6 pb-20 pt-6 lg:px-8 lg:pb-24">
       <nav class="mb-14 flex items-center justify-between">
         <p class="font-display text-xl font-bold text-trust-900">Impulso Emprendedor</p>
-        <a href="#catalogo" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700">Ver catalogo</a>
+        <div class="flex items-center gap-2">
+          <button id="installAppBtn" class="hidden rounded-full border border-emeraldx-500 bg-emeraldx-100 px-4 py-2 text-sm font-bold text-emeraldx-700 transition hover:bg-emeraldx-500 hover:text-white">Instalar App</button>
+          <a href="#catalogo" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700">Ver catalogo</a>
+        </div>
       </nav>
 
       <section class="reveal grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
@@ -277,6 +282,16 @@
       <a id="modalRequestBtn" href="#contacto" class="mt-6 inline-flex rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white">Solicitar esta plantilla</a>
     </article>
   </div>
+
+  <button id="floatingWhatsapp" class="whatsapp-float" type="button" aria-label="Abrir WhatsApp">
+    <span class="whatsapp-float__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M20 5.5A10 10 0 0 0 4 14a10 10 0 0 0 1.5 5l-1 3 3-.9A10 10 0 1 0 20 5.5Z"/>
+        <path d="M8.5 10.5c1.3 2.7 2.9 4.3 5.6 5.6"/>
+      </svg>
+    </span>
+    <span class="whatsapp-float__label">Cotizar por WhatsApp</span>
+  </button>
 
   <script src="script.js"></script>
 </body>
