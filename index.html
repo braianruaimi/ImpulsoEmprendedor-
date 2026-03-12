@@ -168,6 +168,51 @@
       </div>
     </section>
 
+    <section id="contacto" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="reveal grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:grid-cols-[1fr_1fr] lg:p-8">
+        <article>
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Paso final</p>
+          <h2 class="mt-2 font-display text-3xl font-bold text-trust-900">Pide tu propuesta en menos de 1 minuto</h2>
+          <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-600">Completa este formulario y se abrira WhatsApp con un mensaje listo para cotizar tu plantilla ideal. Asi avanzamos rapido y sin vueltas.</p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-700">
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emeraldx-700"></span><span>Respuesta agil con propuesta personalizada.</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emeraldx-700"></span><span>Enfoque en resultados de ventas y captacion.</span></li>
+            <li class="flex items-start gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emeraldx-700"></span><span>Implementacion adaptada a tu rubro.</span></li>
+          </ul>
+        </article>
+
+        <form id="whatsappForm" class="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div>
+            <label for="clientName" class="mb-1 block text-sm font-semibold text-slate-700">Tu nombre</label>
+            <input id="clientName" name="clientName" type="text" required class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-trust-500 focus:ring-2 focus:ring-trust-100" placeholder="Ej: Braian" />
+          </div>
+
+          <div>
+            <label for="businessName" class="mb-1 block text-sm font-semibold text-slate-700">Nombre de tu negocio</label>
+            <input id="businessName" name="businessName" type="text" required class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-trust-500 focus:ring-2 focus:ring-trust-100" placeholder="Ej: Tienda Centro" />
+          </div>
+
+          <div>
+            <label for="templateChoice" class="mb-1 block text-sm font-semibold text-slate-700">Plantilla de interes</label>
+            <select id="templateChoice" name="templateChoice" required class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-trust-500 focus:ring-2 focus:ring-trust-100">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option value="ecommerce">E-commerce Minimalista</option>
+              <option value="servicios">Servicios Profesionales</option>
+              <option value="food">Food & Menu</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="goal" class="mb-1 block text-sm font-semibold text-slate-700">Objetivo principal</label>
+            <textarea id="goal" name="goal" rows="3" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-trust-500 focus:ring-2 focus:ring-trust-100" placeholder="Ej: Quiero aumentar pedidos y mostrar mis productos de forma profesional"></textarea>
+          </div>
+
+          <button type="submit" class="w-full rounded-xl bg-emeraldx-700 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-emeraldx-500">Enviar solicitud por WhatsApp</button>
+          <p id="formHint" class="text-xs text-slate-500">Se abrira WhatsApp con un mensaje autocompletado.</p>
+        </form>
+      </div>
+    </section>
+
     <section id="metricas" class="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
       <div class="reveal rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:p-8">
         <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
@@ -229,7 +274,7 @@
       </div>
       <p id="modalDescription" class="text-sm leading-relaxed text-slate-600"></p>
       <ul id="modalList" class="mt-4 space-y-2 text-sm text-slate-700"></ul>
-      <a href="#" class="mt-6 inline-flex rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white">Solicitar esta plantilla</a>
+      <a id="modalRequestBtn" href="#contacto" class="mt-6 inline-flex rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white">Solicitar esta plantilla</a>
     </article>
   </div>
 

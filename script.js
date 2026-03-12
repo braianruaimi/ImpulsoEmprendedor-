@@ -44,6 +44,12 @@ const modalDescription = document.getElementById('modalDescription');
 const modalList = document.getElementById('modalList');
 const closeModalButton = document.getElementById('closeModal');
 const overlay = document.querySelector('.modal-overlay');
+const modalRequestButton = document.getElementById('modalRequestBtn');
+const whatsappForm = document.getElementById('whatsappForm');
+const templateChoice = document.getElementById('templateChoice');
+
+const WHATSAPP_NUMBER = '5490000000000';
+let selectedTemplateKey = '';
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -93,6 +99,8 @@ const openModal = (key) => {
     return;
   }
 
+  selectedTemplateKey = key;
+
   modalTag.textContent = content.tag;
   modalTitle.textContent = content.title;
   modalDescription.textContent = content.description;
@@ -119,6 +127,15 @@ document.querySelectorAll('.preview-btn').forEach((button) => {
   });
 });
 
+if (modalRequestButton) {
+  modalRequestButton.addEventListener('click', () => {
+    if (templateChoice && selectedTemplateKey) {
+      templateChoice.value = selectedTemplateKey;
+    }
+    hideModal();
+  });
+}
+
 closeModalButton.addEventListener('click', hideModal);
 overlay.addEventListener('click', hideModal);
 
@@ -127,3 +144,37 @@ document.addEventListener('keydown', (event) => {
     hideModal();
   }
 });
+
+if (whatsappForm) {
+  whatsappForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(whatsappForm);
+    const name = (formData.get('clientName') || '').toString().trim();
+    const business = (formData.get('businessName') || '').toString().trim();
+    const template = (formData.get('templateChoice') || '').toString().trim();
+    const goal = (formData.get('goal') || '').toString().trim();
+
+    if (!name || !business || !template) {
+      return;
+    }
+
+    const templateLabel = previewData[template]?.tag || template;
+    const messageLines = [
+      'Hola, quiero digitalizar mi negocio con una plantilla web.',
+      `Mi nombre es ${name}.`,
+      `Negocio: ${business}.`,
+      `Plantilla de interes: ${templateLabel}.`
+    ];
+
+    if (goal) {
+      messageLines.push(`Objetivo principal: ${goal}.`);
+    }
+
+    messageLines.push('Quiero recibir una propuesta y siguientes pasos para empezar.');
+
+    const encodedMessage = encodeURIComponent(messageLines.join('\n'));
+    const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(link, '_blank', 'noopener,noreferrer');
+  });
+}
