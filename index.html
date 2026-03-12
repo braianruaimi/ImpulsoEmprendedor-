@@ -3,79 +3,235 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impulso Emprendedor</title>
-  <meta name="description" content="Impulso Emprendedor: ideas, herramientas y comunidad para hacer crecer tu proyecto." />
+  <title>Catalogo de Plantillas Web | Impulso Emprendedor</title>
+  <meta name="description" content="Plantillas web listas para vender: ecommerce, servicios y food menu con carrito a WhatsApp y panel de metricas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Outfit", "sans-serif"]
+          },
+          colors: {
+            trust: {
+              900: "#0c2635",
+              700: "#14567a",
+              500: "#1f87b5",
+              100: "#d9f2ff"
+            },
+            emeraldx: {
+              700: "#0d7a5a",
+              500: "#10a374",
+              100: "#dafaea"
+            }
+          }
+        }
+      }
+    };
+  </script>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="noise" aria-hidden="true"></div>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <div class="site-bg" aria-hidden="true"></div>
 
-  <header class="hero">
-    <nav class="nav">
-      <div class="brand">ImpulsoEmprendedor</div>
-      <a class="nav-link" href="#contacto">Sumate</a>
-    </nav>
+  <header class="relative z-10">
+    <div class="mx-auto max-w-6xl px-6 pb-20 pt-6 lg:px-8 lg:pb-24">
+      <nav class="mb-14 flex items-center justify-between">
+        <p class="font-display text-xl font-bold text-trust-900">Impulso Emprendedor</p>
+        <a href="#catalogo" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700">Ver catalogo</a>
+      </nav>
 
-    <div class="hero-content reveal">
-      <p class="kicker">Comunidad + Acción</p>
-      <h1>Convertimos ideas en proyectos sostenibles.</h1>
-      <p class="subtitle">
-        Recursos prácticos, mentoría y una red real para emprender con dirección.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#programas">Ver programas</a>
-        <a class="btn btn-ghost" href="#contacto">Quiero participar</a>
-      </div>
+      <section class="reveal grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div>
+          <p class="mb-4 inline-flex rounded-full border border-trust-100 bg-trust-100/70 px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-trust-700">Soluciones digitales para vender mas</p>
+          <h1 class="font-display text-4xl font-bold leading-tight text-trust-900 md:text-6xl">Digitalizo tu negocio con plantillas web que convierten visitas en clientes.</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">No necesitas empezar de cero. Elige un modelo validado, personalizalo a tu marca y activa ventas online con una experiencia profesional desde el dia uno.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#catalogo" class="rounded-xl bg-trust-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-trust-900">Ver Catalogo</a>
+            <a href="#metricas" class="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-700 transition hover:border-trust-500 hover:text-trust-700">Ver Demo de Metricas</a>
+          </div>
+        </div>
+
+        <aside class="glass-card reveal rounded-2xl p-6">
+          <p class="mb-4 text-sm font-semibold text-slate-500">Impacto esperado en 30 dias</p>
+          <div class="space-y-4">
+            <div class="rounded-xl bg-white p-4 shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Leads calificados</p>
+              <p class="mt-2 text-3xl font-extrabold text-trust-900">+38%</p>
+            </div>
+            <div class="rounded-xl bg-white p-4 shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Pedidos por WhatsApp</p>
+              <p class="mt-2 text-3xl font-extrabold text-emeraldx-700">+52%</p>
+            </div>
+          </div>
+        </aside>
+      </section>
     </div>
   </header>
 
-  <main>
-    <section id="programas" class="section reveal">
-      <h2>Programas</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Idea Cero</h3>
-          <p>Validacion rapida para pasar de intuicion a propuesta clara en 4 semanas.</p>
+  <main class="relative z-10">
+    <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="reveal rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/60 lg:p-8">
+        <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Caracteristicas incluidas</p>
+            <h2 class="font-display text-3xl font-bold text-trust-900">Todo lo que necesita un negocio para escalar online</h2>
+          </div>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <article class="feature-card reveal rounded-2xl border border-slate-200 p-5">
+            <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-trust-100 text-trust-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h2l2.3 9.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 .98-.8L21 8H7"/><circle cx="10" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Carrito de pedidos</h3>
+            <p class="mt-2 text-sm text-slate-600">Proceso de compra simple para que tus clientes pasen de mirar a comprar en pocos clics.</p>
+          </article>
+
+          <article class="feature-card reveal rounded-2xl border border-slate-200 p-5">
+            <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emeraldx-100 text-emeraldx-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 5.5A10 10 0 0 0 4 14a10 10 0 0 0 1.5 5l-1 3 3-.9A10 10 0 1 0 20 5.5Z"/><path d="M8.5 10.5c1.3 2.7 2.9 4.3 5.6 5.6"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Compra directa a WhatsApp</h3>
+            <p class="mt-2 text-sm text-slate-600">Cierra ventas por chat con mensajes prearmados listos para convertir intencion en accion.</p>
+          </article>
+
+          <article class="feature-card reveal rounded-2xl border border-slate-200 p-5">
+            <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-trust-100 text-trust-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 10a3 3 0 1 0-3-3"/><path d="M17 19a3 3 0 1 0 3-3"/><path d="M8.7 8.7l6.6 6.6"/><path d="M17 8a2 2 0 1 0 0-4"/><path d="M7 20a2 2 0 1 0 0-4"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Integracion de redes sociales</h3>
+            <p class="mt-2 text-sm text-slate-600">Conecta Instagram, Facebook y TikTok para transformar cada perfil en una entrada a tu web.</p>
+          </article>
+
+          <article class="feature-card reveal rounded-2xl border border-slate-200 p-5">
+            <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emeraldx-100 text-emeraldx-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16"/><path d="M7 16V9"/><path d="M12 16V5"/><path d="M17 16v-3"/></svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Panel de metricas personalizado</h3>
+            <p class="mt-2 text-sm text-slate-600">Visualiza ventas, trafico y pedidos para tomar decisiones con datos y no con suposiciones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="mb-8 reveal">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Galeria de plantillas</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Elige el modelo que mejor acelera tu tipo de negocio</h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article class="template-card reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-trust-900 to-trust-500 p-4 text-white">
+            <p class="text-xs font-bold uppercase tracking-[0.18em]">E-commerce Minimalista</p>
+            <p class="mt-3 max-w-[20ch] text-sm text-trust-100">Perfecto para marcas de productos fisicos que quieren vender mas con una experiencia limpia.</p>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900">Modelo E-commerce Minimalista</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Ideal para tiendas de moda, belleza o tecnologia que necesitan aumentar ticket promedio y conversion con una navegacion simple.</p>
+          <div class="mt-5 flex items-center justify-between gap-3">
+            <span class="rounded-full bg-trust-100 px-3 py-1 text-xs font-bold text-trust-700">Productos fisicos</span>
+            <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="ecommerce">Vista Previa</button>
+          </div>
         </article>
-        <article class="card">
-          <h3>Escala Local</h3>
-          <p>Estrategia comercial y operativa para consolidar tus primeras ventas.</p>
+
+        <article class="template-card reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-slate-800 to-slate-500 p-4 text-white">
+            <p class="text-xs font-bold uppercase tracking-[0.18em]">Servicios Profesionales</p>
+            <p class="mt-3 max-w-[20ch] text-sm text-slate-200">Pensado para consultores, estudios y freelancers que necesitan mostrar valor y cerrar reuniones.</p>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900">Modelo Servicios Profesionales</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Diseñado para quienes venden confianza: agenda integrada, portafolio y bloques persuasivos para captar clientes premium.</p>
+          <div class="mt-5 flex items-center justify-between gap-3">
+            <span class="rounded-full bg-slate-200 px-3 py-1 text-xs font-bold text-slate-700">Agenda y portfolio</span>
+            <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="servicios">Vista Previa</button>
+          </div>
         </article>
-        <article class="card">
-          <h3>Red Mentor</h3>
-          <p>Acompanamiento 1:1 con emprendedores que ya recorrieron el camino.</p>
+
+        <article class="template-card reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 md:col-span-2 xl:col-span-1">
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-emeraldx-700 to-emeraldx-500 p-4 text-white">
+            <p class="text-xs font-bold uppercase tracking-[0.18em]">Food &amp; Menu</p>
+            <p class="mt-3 max-w-[20ch] text-sm text-emeraldx-100">Hecho para restaurantes y cafeterias que quieren pedidos rapidos directo por WhatsApp.</p>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900">Modelo Food &amp; Menu</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Convierte cada visita en pedido con menu visual, carrito de combos y boton directo a WhatsApp para confirmar en segundos.</p>
+          <div class="mt-5 flex items-center justify-between gap-3">
+            <span class="rounded-full bg-emeraldx-100 px-3 py-1 text-xs font-bold text-emeraldx-700">Restaurantes y food</span>
+            <button class="preview-btn rounded-lg bg-emeraldx-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-emeraldx-500" data-template="food">Vista Previa</button>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section stats reveal">
-      <div>
-        <strong>120+</strong>
-        <span>emprendimientos acompanados</span>
-      </div>
-      <div>
-        <strong>18</strong>
-        <span>alianzas activas</span>
-      </div>
-      <div>
-        <strong>92%</strong>
-        <span>de continuidad al 6to mes</span>
-      </div>
-    </section>
+    <section id="metricas" class="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
+      <div class="reveal rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:p-8">
+        <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Dashboard demo</p>
+            <h2 class="font-display text-3xl font-bold text-trust-900">Asi se veria tu panel de control</h2>
+          </div>
+          <p class="max-w-md text-sm text-slate-600">Una vista clara para medir crecimiento y detectar que estrategia te esta generando mas ingresos.</p>
+        </div>
 
-    <section id="contacto" class="section reveal">
-      <h2>Empecemos hoy</h2>
-      <p>Escribinos y te orientamos segun tu etapa.</p>
-      <a class="btn btn-primary" href="mailto:contacto@impulsoemprendedor.com">contacto@impulsoemprendedor.com</a>
+        <div class="grid gap-5 lg:grid-cols-3">
+          <article class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Ventas mensuales</p>
+            <p class="mt-1 text-2xl font-extrabold text-trust-900">$4,820</p>
+            <p class="mt-1 text-sm font-semibold text-emeraldx-700">+28% vs mes anterior</p>
+            <div class="mt-4 h-2 rounded-full bg-slate-200">
+              <div class="progress-bar h-2 rounded-full bg-trust-700" data-progress="78"></div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Visitas semanales</p>
+            <p class="mt-1 text-2xl font-extrabold text-trust-900">12,340</p>
+            <p class="mt-1 text-sm font-semibold text-emeraldx-700">+34% por trafico social</p>
+            <div class="mt-4 h-2 rounded-full bg-slate-200">
+              <div class="progress-bar h-2 rounded-full bg-trust-500" data-progress="86"></div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Pedidos cerrados</p>
+            <p class="mt-1 text-2xl font-extrabold text-trust-900">326</p>
+            <p class="mt-1 text-sm font-semibold text-emeraldx-700">+41% con carrito + WhatsApp</p>
+            <div class="mt-4 h-2 rounded-full bg-slate-200">
+              <div class="progress-bar h-2 rounded-full bg-emeraldx-700" data-progress="91"></div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>ImpulsoEmprendedor · 2026</p>
+  <footer class="relative z-10 border-t border-slate-200 bg-white/70">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-sm text-slate-600 lg:px-8">
+      <p>Impulso Emprendedor</p>
+      <a href="#catalogo" class="font-semibold text-trust-700 hover:text-trust-900">Quiero digitalizar mi negocio</a>
+    </div>
   </footer>
+
+  <div id="previewModal" class="modal hidden fixed inset-0 z-50 items-center justify-center p-4" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-overlay absolute inset-0 bg-slate-950/70"></div>
+    <article class="relative w-full max-w-xl rounded-2xl bg-white p-6 shadow-2xl">
+      <div class="mb-4 flex items-start justify-between gap-4">
+        <div>
+          <p id="modalTag" class="text-xs font-bold uppercase tracking-[0.16em] text-trust-700">Modelo</p>
+          <h3 id="modalTitle" class="font-display text-2xl font-bold text-slate-900">Vista previa</h3>
+        </div>
+        <button id="closeModal" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-bold text-slate-600 hover:border-slate-500 hover:text-slate-800">Cerrar</button>
+      </div>
+      <p id="modalDescription" class="text-sm leading-relaxed text-slate-600"></p>
+      <ul id="modalList" class="mt-4 space-y-2 text-sm text-slate-700"></ul>
+      <a href="#" class="mt-6 inline-flex rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white">Solicitar esta plantilla</a>
+    </article>
+  </div>
 
   <script src="script.js"></script>
 </body>

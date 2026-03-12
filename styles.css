@@ -1,186 +1,36 @@
-:root {
-  --bg-a: #fff4e8;
-  --bg-b: #ffd6b8;
-  --ink: #1f1a17;
-  --muted: #5c4a40;
-  --card: #fffaf6cc;
-  --line: #d4b49f;
-  --accent: #0f766e;
-  --accent-2: #f97316;
-  --shadow: 0 20px 40px rgba(31, 26, 23, 0.12);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--ink);
-  font-family: "Space Grotesk", sans-serif;
-  background: radial-gradient(1200px circle at 12% 8%, #fffbe6 0%, transparent 45%),
-    radial-gradient(1000px circle at 88% 16%, #ffd2c9 0%, transparent 40%),
-    linear-gradient(140deg, var(--bg-a), var(--bg-b));
-  min-height: 100%;
-}
-
-.noise {
+.site-bg {
   position: fixed;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.05;
-  background-image: radial-gradient(#000 0.6px, transparent 0.6px);
-  background-size: 3px 3px;
+  background:
+    radial-gradient(1000px circle at 10% 5%, rgba(31, 135, 181, 0.15), transparent 50%),
+    radial-gradient(900px circle at 88% 16%, rgba(16, 163, 116, 0.13), transparent 45%),
+    linear-gradient(180deg, #f8fcff 0%, #f8fafc 100%);
 }
 
-.hero {
-  padding: 1.25rem clamp(1rem, 4vw, 3rem) 4rem;
+.glass-card {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(241, 245, 249, 0.9));
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.feature-card,
+.template-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.brand {
-  font-family: "Sora", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--ink);
-  border: 1px solid var(--line);
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  background: #ffffff9c;
-}
-
-.hero-content {
-  max-width: 760px;
-  margin-top: clamp(3rem, 8vw, 8rem);
-}
-
-.kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 0.82rem;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-family: "Sora", sans-serif;
-}
-
-h1 {
-  margin-top: 0.8rem;
-  font-size: clamp(2rem, 7vw, 4.8rem);
-  line-height: 0.98;
-}
-
-.subtitle {
-  color: var(--muted);
-  max-width: 58ch;
-  font-size: 1.12rem;
-  margin-top: 1.2rem;
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.6rem;
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: linear-gradient(90deg, var(--accent), #14b8a6);
-  color: #fff;
-}
-
-.btn-ghost {
-  color: var(--ink);
-  border-color: var(--line);
-  background: #ffffffad;
-}
-
-.section {
-  padding: 2rem clamp(1rem, 4vw, 3rem);
-}
-
-.section h2 {
-  font-size: clamp(1.5rem, 4vw, 2.6rem);
-}
-
-.grid {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 0.9rem;
-}
-
-.card {
-  grid-column: span 12;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-}
-
-.card p {
-  color: var(--muted);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem;
-}
-
-.stats div {
-  background: #ffffffa6;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 1rem;
-}
-
-.stats strong {
-  display: block;
-  font-family: "Sora", sans-serif;
-  font-size: 2rem;
-}
-
-.stats span {
-  color: var(--muted);
-}
-
-.footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 1rem 0 2rem;
+.feature-card:hover,
+.template-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(31, 135, 181, 0.4);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(20px);
+  transition: opacity 620ms ease, transform 620ms ease;
 }
 
 .reveal.is-visible {
@@ -188,14 +38,15 @@ h1 {
   transform: translateY(0);
 }
 
-@media (min-width: 820px) {
-  .card {
-    grid-column: span 4;
-  }
+.progress-bar {
+  width: 0;
+  transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (max-width: 820px) {
-  .stats {
-    grid-template-columns: 1fr;
-  }
+.modal {
+  display: none;
+}
+
+.modal.modal-open {
+  display: flex;
 }

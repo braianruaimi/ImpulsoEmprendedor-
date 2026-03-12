@@ -1,7 +1,52 @@
-const elements = document.querySelectorAll('.reveal');
+const revealItems = document.querySelectorAll('.reveal');
+const progressBars = document.querySelectorAll('.progress-bar');
 
-const observer = new IntersectionObserver(
-  (entries) => {
+const previewData = {
+  ecommerce: {
+    tag: 'E-commerce Minimalista',
+    title: 'Pensado para vender productos sin friccion',
+    description:
+      'Este modelo prioriza conversion: catalogo limpio, fichas de producto directas y recorrido de compra optimizado para elevar el ticket promedio.',
+    bullets: [
+      'Ideal para moda, belleza, hogar y tecnologia.',
+      'Checkout claro con carrito intuitivo.',
+      'Bloques de confianza para reducir abandono.'
+    ]
+  },
+  servicios: {
+    tag: 'Servicios Profesionales',
+    title: 'Tu experiencia convertida en reuniones cerradas',
+    description:
+      'Una estructura orientada a autoridad y captacion: propuesta de valor, casos de exito y agenda integrada para convertir visitantes en clientes.',
+    bullets: [
+      'Perfecto para consultorias, agencias y freelancers.',
+      'Portfolio visual con testimonios estrategicos.',
+      'Flujo de contacto para calificar leads.'
+    ]
+  },
+  food: {
+    tag: 'Food & Menu',
+    title: 'Menu digital que acelera pedidos por WhatsApp',
+    description:
+      'Disenado para locales gastronomicos que necesitan vender rapido: categorias claras, combos destacados y envio del pedido al chat en segundos.',
+    bullets: [
+      'Excelente para restaurantes, cafes y dark kitchens.',
+      'Carrito directo a WhatsApp con mensaje prearmado.',
+      'Modulos para promos y productos estrella.'
+    ]
+  }
+};
+
+const modal = document.getElementById('previewModal');
+const modalTag = document.getElementById('modalTag');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalList = document.getElementById('modalList');
+const closeModalButton = document.getElementById('closeModal');
+const overlay = document.querySelector('.modal-overlay');
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
@@ -9,10 +54,76 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12 }
+  { threshold: 0.14 }
 );
 
-elements.forEach((el, index) => {
-  el.style.transitionDelay = `${Math.min(index * 80, 280)}ms`;
-  observer.observe(el);
+revealItems.forEach((item, index) => {
+  item.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
+  revealObserver.observe(item);
+});
+
+const metricsObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      progressBars.forEach((bar, index) => {
+        const target = bar.getAttribute('data-progress') || '0';
+        setTimeout(() => {
+          bar.style.width = `${target}%`;
+        }, index * 120);
+      });
+
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.3 }
+);
+
+const metricsSection = document.getElementById('metricas');
+if (metricsSection) {
+  metricsObserver.observe(metricsSection);
+}
+
+const openModal = (key) => {
+  const content = previewData[key];
+  if (!content) {
+    return;
+  }
+
+  modalTag.textContent = content.tag;
+  modalTitle.textContent = content.title;
+  modalDescription.textContent = content.description;
+  modalList.innerHTML = content.bullets
+    .map((bullet) => `<li class="flex gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span><span>${bullet}</span></li>`)
+    .join('');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('modal-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+const hideModal = () => {
+  modal.classList.remove('modal-open');
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+document.querySelectorAll('.preview-btn').forEach((button) => {
+  button.addEventListener('click', () => {
+    openModal(button.dataset.template);
+  });
+});
+
+closeModalButton.addEventListener('click', hideModal);
+overlay.addEventListener('click', hideModal);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && modal.classList.contains('modal-open')) {
+    hideModal();
+  }
 });
