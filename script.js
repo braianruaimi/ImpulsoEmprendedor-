@@ -1,3 +1,43 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js', { scope: '/ImpulsoEmprendedor-/' })
+    .then((reg) => {
+      console.log('Service Worker registrado:', reg);
+    })
+    .catch((err) => {
+      console.log('Error registrando Service Worker:', err);
+    });
+}
+
+let installPrompt = null;
+const installButton = document.getElementById('installAppBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  installPrompt = event;
+  if (installButton) {
+    installButton.classList.remove('hidden');
+  }
+});
+
+if (installButton) {
+  installButton.addEventListener('click', async () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+      const { outcome } = await installPrompt.userChoice;
+      console.log(`Usuario responde a pulsa: ${outcome}`);
+      installPrompt = null;
+      installButton.classList.add('hidden');
+    }
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  console.log('PWA fue instalada');
+  if (installButton) {
+    installButton.classList.add('hidden');
+  }
+});
+
 const revealItems = document.querySelectorAll('.reveal');
 const progressBars = document.querySelectorAll('.progress-bar');
 
@@ -48,11 +88,9 @@ const modalRequestButton = document.getElementById('modalRequestBtn');
 const whatsappForm = document.getElementById('whatsappForm');
 const templateChoice = document.getElementById('templateChoice');
 const floatingWhatsappButton = document.getElementById('floatingWhatsapp');
-const installAppButton = document.getElementById('installAppBtn');
 
 const WHATSAPP_NUMBER = '5490000000000';
 let selectedTemplateKey = '';
-let installPromptEvent = null;
 
 const resolveTemplate = () => {
   if (templateChoice && templateChoice.value) {
@@ -226,45 +264,5 @@ if (floatingWhatsappButton) {
     });
 
     window.open(link, '_blank', 'noopener,noreferrer');
-  });
-}
-
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  installPromptEvent = event;
-
-  if (installAppButton) {
-    installAppButton.classList.remove('hidden');
-  }
-});
-
-if (installAppButton) {
-  installAppButton.addEventListener('click', async () => {
-    if (!installPromptEvent) {
-      return;
-    }
-
-    installPromptEvent.prompt();
-    const result = await installPromptEvent.userChoice;
-
-    if (result.outcome === 'accepted') {
-      installAppButton.classList.add('hidden');
-    }
-
-    installPromptEvent = null;
-  });
-}
-
-window.addEventListener('appinstalled', () => {
-  if (installAppButton) {
-    installAppButton.classList.add('hidden');
-  }
-});
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {
-      // Ignore registration errors in unsupported contexts.
-    });
   });
 }

@@ -1,28 +1,39 @@
-const CACHE_NAME = 'impulso-app-v1';
-const STATIC_ASSETS = [
-  './',
-  './index.html',
-  './styles.css',
-  './script.js',
-  './manifest.json'
+const CACHE_NAME = 'impulso-emprendedor-v1';
+const urlsToCache = [
+  '/ImpulsoEmprendedor-/',
+  '/ImpulsoEmprendedor-/index.html',
+  '/ImpulsoEmprendedor-/styles.css',
+  '/ImpulsoEmprendedor-/script.js',
+  '/ImpulsoEmprendedor-/manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('Service Worker: Cacheando archivos...');
+        return cache.addAll(urlsToCache).catch(err => {
+          console.log('Service Worker: Error al cachear algunos archivos (Esto es normal en desarrollo)', err);
+          return Promise.resolve();
+        });
+      })
   );
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    )
+    caches.keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE_NAME) {
+              console.log('Service Worker: Eliminando cache antiguo:', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
   );
   self.clients.claim();
 });
@@ -33,18 +44,34 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+    caches.match(event.request)
+      .then((response) => {
+        if (response) {
+          return response;
+        }
 
-      return fetch(event.request)
-        .then((networkResponse) => {
-          const cloned = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
-          return networkResponse;
-        })
-        .catch(() => caches.match('./index.html'));
-    })
+        return fetch(event.request).then((response) => {
+          if (!response || response.status !== 200 || response.type === 'error') {
+            return response;
+          }
+
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME)
+            .then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+
+          return response;
+        });
+      })
+      .catch(() => {
+        return new Response('Offline: Página no disponible', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({
+            'Content-Type': 'text/plain'
+          })
+        });
+      })
   );
 });
