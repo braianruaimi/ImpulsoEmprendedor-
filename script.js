@@ -48,38 +48,67 @@ const previewData = {
   }
 };
 
+const impulsoCapabilities = {
+  sales:
+    'En Impulso Emprendedor trabajamos para que tu negocio venda mas con una propuesta digital clara, una web pensada para convertir, mensajes comerciales mejor armados y procesos simples para que el cliente avance rapido.',
+  systems:
+    'Tambien podemos ayudarte a crear un sistema para ordenar consultas, pedidos, catalogo, seguimiento comercial y toma de datos, para que no dependas de manejar todo de forma manual.',
+  ads:
+    'Si necesitas atraer mas demanda, podemos complementar la base digital con publicidades orientadas a captar consultas, pedidos o reuniones, segun tu tipo de negocio y tu objetivo de venta.',
+  process:
+    'La forma de trabajo parte de entender tu negocio, detectar cuellos de botella y definir una solucion concreta: presencia digital, sistema comercial, automatizacion o campaña para generar demanda.',
+  positioning:
+    'No buscamos solo que tengas presencia online; buscamos que tu marca se vea profesional, genere confianza y convierta mejor el trafico en conversaciones o ventas reales.'
+};
+
 const assistantKnowledge = [
   {
+    keywords: ['vender', 'ventas', 'mas ventas', 'conversion', 'clientes', 'cerrar'],
+    answer: () => `${impulsoCapabilities.sales} Si hoy tienes visitas pero pocas consultas, o consultas pero pocas ventas, te ayudamos a ajustar el recorrido para que el cliente entienda tu oferta y actue.`
+  },
+  {
+    keywords: ['sistema', 'automatizar', 'automatizacion', 'proceso', 'ordenar', 'gestion'],
+    answer: () => `${impulsoCapabilities.systems} Eso puede incluir formularios mejor pensados, derivacion a WhatsApp, catalogos, seguimiento de leads o paneles para mirar rendimiento y tomar decisiones.`
+  },
+  {
+    keywords: ['publicidad', 'publicidades', 'ads', 'anuncios', 'meta ads', 'campanas', 'trafico'],
+    answer: () => `${impulsoCapabilities.ads} La idea no es solo llevar gente a una pagina, sino construir una oferta y una landing que conviertan ese trafico en oportunidades reales.`
+  },
+  {
+    keywords: ['ecommerce', 'productos', 'tienda', 'catalogo'],
+    answer: () => `Si vendes productos, podemos montarte una base tipo ${previewData.ecommerce.tag.toLowerCase()} para mostrar mejor el catalogo, reducir friccion en la compra y empujar pedidos o consultas con una estructura mas comercial.`
+  },
+  {
+    keywords: ['servicios', 'consultoria', 'freelancer', 'agenda', 'reuniones'],
+    answer: () => `Si vendes servicios, lo importante es posicionarte bien, explicar tu valor y facilitar el contacto. Para eso podemos trabajar con una estructura tipo ${previewData.servicios.tag.toLowerCase()} enfocada en credibilidad, autoridad y cierre de reuniones.`
+  },
+  {
+    keywords: ['food', 'menu', 'restaurante', 'cafeteria', 'gastronomia', 'pedidos'],
+    answer: () => `Para gastronomia podemos trabajar con una experiencia tipo ${previewData.food.tag.toLowerCase()} que priorice pedidos rapidos, combos visibles y contacto inmediato para que cada visita tenga mas chances de terminar en venta.`
+  },
+  {
+    keywords: ['ayuda', 'hacen', 'ofrecen', 'pueden ayudarme', 'como trabajan'],
+    answer: () => `${impulsoCapabilities.process} Podemos ayudarte desde una web que convierta hasta un sistema comercial mas ordenado o publicidades para generar mas oportunidades.`
+  },
+  {
+    keywords: ['marca', 'posicionamiento', 'imagen', 'confianza', 'profesional'],
+    answer: () => `${impulsoCapabilities.positioning} Cuando la marca comunica mejor, sube la confianza y eso impacta en conversion y ticket.`
+  },
+  {
     keywords: ['whatsapp', 'contacto', 'numero', 'telefono'],
-    answer: () => `Puedes escribir directo al WhatsApp ${DISPLAY_WHATSAPP_NUMBER}. La web ya arma mensajes automaticos desde el formulario y desde el boton flotante.`
+    answer: () => `Si quieres que lo conversemos puntual sobre tu negocio, puedes escribir directo al WhatsApp ${DISPLAY_WHATSAPP_NUMBER}. Desde ahi podemos definir si te conviene una web comercial, un sistema interno o una estrategia de publicidad.`
   },
   {
-    keywords: ['ecommerce', 'productos', 'tienda'],
-    answer: () => `${previewData.ecommerce.tag}: ${previewData.ecommerce.description} ${previewData.ecommerce.bullets.join(' ')}`
-  },
-  {
-    keywords: ['servicios', 'consultoria', 'freelancer', 'agenda'],
-    answer: () => `${previewData.servicios.tag}: ${previewData.servicios.description} ${previewData.servicios.bullets.join(' ')}`
-  },
-  {
-    keywords: ['food', 'menu', 'restaurante', 'cafeteria', 'gastronomia'],
-    answer: () => `${previewData.food.tag}: ${previewData.food.description} ${previewData.food.bullets.join(' ')}`
+    keywords: ['precio', 'costo', 'cuanto', 'presupuesto', 'valor'],
+    answer: () => 'No trabajamos con un precio unico porque depende de lo que necesite tu negocio. Primero vemos si necesitas una base para vender, un sistema para ordenar procesos o una estrategia para generar demanda, y desde ahi armamos una propuesta realista.'
   },
   {
     keywords: ['pwa', 'app', 'instalar', 'offline'],
-    answer: () => 'La web app se puede instalar como PWA, funciona como app nativa y ahora tambien avisa cuando hay una nueva version lista para actualizar.'
+    answer: () => 'La web tambien puede funcionar como app instalable, pero eso es un plus. El foco principal sigue siendo ayudarte a captar mejor, ordenar el proceso comercial y convertir mas.'
   },
   {
-    keywords: ['proceso', 'pasos', 'trabajo', 'entrega'],
-    answer: () => 'El proceso tiene cuatro pasos: elegir modelo, adaptar la marca, activar conversion y publicar con medicion. La base puede salir en pocos dias si el contenido esta claro.'
-  },
-  {
-    keywords: ['metricas', 'ceo', 'views', 'conversion', 'growth'],
-    answer: () => 'El panel CEO muestra views, conversiones y growth guardados en este dispositivo. Para entrar usa la clave configurada y para limpiar metricas se vuelve a pedir contraseña.'
-  },
-  {
-    keywords: ['precio', 'costa', 'cuanto'],
-    answer: () => 'En la web no hay un precio publicado. El flujo esta pensado para pedir una propuesta personalizada por WhatsApp segun plantilla y objetivo comercial.'
+    keywords: ['metricas', 'ceo', 'views', 'conversion', 'growth', 'medir'],
+    answer: () => 'Tambien pensamos en medicion, porque no alcanza con publicar. Necesitas ver si estan entrando visitas, si convierten y donde conviene ajustar para crecer con mas criterio.'
   }
 ];
 
@@ -340,7 +369,7 @@ const appendAssistantMessage = (content, role = 'bot') => {
   assistantMessages.scrollTop = assistantMessages.scrollHeight;
 };
 
-const buildAssistantFallback = () => 'Puedo responder sobre plantillas, proceso, WhatsApp, instalacion como app, metricas y forma de contacto. Si preguntas por precios, el sistema indica que la propuesta se arma por WhatsApp.';
+const buildAssistantFallback = () => 'Podemos ayudarte a vender mas, ordenar tu operacion con un sistema, mejorar tu presencia digital y sumar publicidades para generar demanda. Si me cuentas tu rubro o tu principal problema, te oriento mejor.';
 
 const getAssistantAnswer = (question) => {
   const normalizedQuestion = normalizeText(question);
@@ -693,6 +722,6 @@ if (!sessionStorage.getItem(STORAGE_KEYS.viewedSession)) {
   renderCeoMetrics();
 }
 
-appendAssistantMessage('Puedo responder sobre plantillas, WhatsApp, proceso, PWA y metricas que maneja esta web app.');
+appendAssistantMessage('Soy el asistente de Impulso Emprendedor. Puedo orientarte sobre como ayudarte a vender mas, ordenar procesos, crear un sistema comercial o sumar publicidades para atraer clientes.');
 
 registerServiceWorker();
