@@ -1,263 +1,141 @@
-# Impulso Emprendedor - Catálogo de Plantillas Web
+# Impulso Emprendedor
 
-Una plataforma profesional que conecta a emprendedores con plantillas web lisas para vender: e-commerce, servicios profesionales y soluciones para food & menu.
+Landing/PWA comercial para vender plantillas web con foco en conversion, contacto por WhatsApp y seguimiento basico de metricas locales.
 
-**Sitio en vivo:** https://braianruaimi.github.io/ImpulsoEmprendedor-/
+Sitio en vivo: https://braianruaimi.github.io/ImpulsoEmprendedor-/
 
----
+## Resumen
 
-## 🎯 Objetivo
+La app muestra tres modelos de plantilla:
 
-Digitalizar negocios pequeños y medianos proporcionando **plantillas web validadas** que transforman visitantes en clientes, con enfoque en:
-- Aumentar pedidos y conversiones
-- Simplificar el proceso de compra
-- Integrar WhatsApp como canal de ventas
-- Brindar visibilidad de métricas en tiempo real
+1. E-commerce Minimalista
+2. Servicios Profesionales
+3. Food and Menu
 
----
+El recorrido principal lleva desde la exploracion de plantillas hasta el contacto directo por WhatsApp con mensaje prearmado para cotizacion.
 
-## ✨ Características Principales
+## Cambios implementados
 
-### 🏪 Galería de Plantillas (3 Modelos)
-1. **E-commerce Minimalista**
-   - Para tiendas de moda, belleza, tecnología
-   - Carrito intuitivo y checkout simple
-   - Optimizado para ticket promedio
+- Tema visual oscuro con acentos electricos.
+- WhatsApp integrado al numero +54 9 221 504 7962.
+- Boton flotante de IA con respuestas automaticas basadas en la informacion cargada en la web.
+- Boton transparente de CEO abajo a la izquierda con acceso por contraseña 1234.
+- Panel CEO con views, conversiones y growth persistidos en localStorage.
+- Limpieza de metricas protegida con reconfirmacion de contraseña.
+- PWA con aviso de actualizacion y recarga controlada al confirmar.
 
-2. **Servicios Profesionales**
-   - Para consultores, agencias, freelancers
-   - Agenda integrada + portafolio visual
-   - Bloques de autoridad para captar leads premium
+## Funcionalidades clave
 
-3. **Food & Menu**
-   - Para restaurantes, cafés, dark kitchens
-   - Menú visual con combos destacados
-   - Carrito directo a WhatsApp
+### WhatsApp
 
-### 💾 Características Técnicas Incluidas
+- Formulario de contacto con mensaje armado.
+- Boton flotante de WhatsApp.
+- Numero configurado: 5492215047962.
 
-- **Carrito de pedidos** intuitivo y responsivo
-- **Compra directa a WhatsApp** con mensajes prearmados
-- **Integración de redes sociales** (Instagram, Facebook, TikTok)
-- **Panel de métricas personalizado** con visualización de datos
-- **Vista previa rápida** modal dinámico para cada plantilla
-- **Formulario de contacto** con autocompletado por plantilla
-- **Botón flotante WhatsApp** contextual
-- **PWA (Progressive Web App)** - Instalable como app nativa
-- **Offline ready** gracias a Service Worker
+### Asistente IA
 
----
+El asistente no llama a un modelo externo. Responde en cliente usando la informacion ya presente en la app:
 
-## 🚀 Cómo Funciona
+- plantillas disponibles
+- proceso de trabajo
+- instalacion como PWA
+- metricas del sistema
+- contacto por WhatsApp
 
-### Flujo de Conversión
+Si la pregunta no coincide con conocimiento cargado, devuelve una respuesta de fallback con los temas soportados.
 
-1. **Exploración**: Usuario ve hero section con propuesta de valor
-2. **Descubrimiento**: Navega galería de 3 modelos de plantillas
-3. **Evaluación**: Haz clic en "Vista Previa" para abrir modal con detalles
-4. **Contacto**: 
-   - Opción A: Completa formulario de contacto → WhatsApp automático
-   - Opción B: Usa botón flotante WhatsApp para contacto rápido
-5. **Métricas**: Ve demo de dashboard con estadísticas de crecimiento
+### Panel CEO
 
-### Mensaje Inteligente de WhatsApp
+Acceso:
 
-El mensaje se completa automáticamente con:
-- Nombre del usuario
-- Nombre del negocio
-- Plantilla seleccionada
-- Objetivo principal
-- Canal de contacto (formulario, modal o botón flotante)
+- Boton transparente abajo a la izquierda.
+- Contraseña: 1234.
 
-**Ejemplo:**
-```
-Hola, quiero digitalizar mi negocio con una plantilla web.
-Mi nombre es Braian.
-Negocio: Tienda Centro.
-Plantilla de interes: E-commerce Minimalista.
-Objetivo principal: Quiero aumentar pedidos y mostrar mis productos de forma profesional.
-Canal de contacto: Formulario Web.
-Quiero recibir una propuesta y siguientes pasos para empezar.
-```
+Metricas:
 
----
+- Views: una vez por sesion del navegador.
+- Conversiones: clicks efectivos hacia WhatsApp desde formulario o boton flotante.
+- Growth: comparacion de views de los ultimos 7 dias contra los 7 dias anteriores.
 
-## 📱 Instalación como PWA
+Persistencia:
 
-La plataforma es una **Progressive Web App** totalmente funcional:
+- Se guarda en localStorage del navegador.
+- Es una metrica local por dispositivo, no una analitica centralizada.
 
-### En Dispositivo Móvil (Android)
-1. Abre el sitio en Chrome
-2. Espera a que aparezca "⬇ Instalar App" en la navegación
-3. Haz clic para instalar
-4. Se agregará como app en tu home screen
+Limpieza:
 
-### En Computadora (Chrome/Edge)
-1. Abre el sitio
-2. Haz clic en "⬇ Instalar App"
-3. Se instalará como app de escritorio
-4. Acceso offline disponible
+- Requiere volver a ingresar contraseña.
+- Luego pide confirmacion explicita antes de borrar.
 
-### Ventajas
-- ✅ Funciona offline gracias a Service Worker
-- ✅ Sin conexión internet, los datos cacheados siguen disponibles
-- ✅ Push notifications posibles
-- ✅ Acceso rápido desde home screen
-- ✅ Experiencia similar a app nativa
+### PWA
 
----
+- Registro de service worker con cache local.
+- Soporte para GitHub Pages y preview local.
+- Aviso visual cuando hay una version nueva.
+- El usuario confirma con OK y la app se actualiza.
 
-## 🛠️ Stack Tecnológico
+## Stack
 
-### Frontend
-- **HTML5** - Estructura semántica y accesibilidad
-- **CSS3** - Tailwind CSS para utilidades de diseño
-- **JavaScript (Vanilla)** - Sin frameworks, máximo rendimiento
-- **SVG Icons** - Iconografía escalable
+- HTML5
+- Tailwind por CDN
+- CSS personalizado
+- JavaScript vanilla
+- Web App Manifest
+- Service Worker
 
-### PWA & Performance
-- **Service Worker** - Caché offline y sync
-- **Web Manifest** - Configuración de app
-- **Intersection Observer** - Reveal animations eficientes
-- **HTTPS** - Seguridad en GitHub Pages
+## Estructura
 
-### Hosting
-- **GitHub Pages** - HTTPS automático, CDN global
-- **Dominio personalizado** - Listo para custom domain
-
----
-
-## 📂 Estructura del Proyecto
-
-```
+```text
 ImpulsoEmprendedor-/
-├── index.html          # Página principal
-├── manifest.json       # Configuración PWA
-├── sw.js              # Service Worker (offline)
-├── styles.css         # Estilos personalizados
-├── script.js          # Lógica JavaScript
-└── README.md          # Este archivo
+├── index.html
+├── styles.css
+├── script.js
+├── manifest.json
+├── sw.js
+└── README.md
 ```
 
-### Archivos Clave
+## Desarrollo local
 
-**index.html**
-- Hero section con propuesta de valor
-- Sección de características (4 cards)
-- Galería de 3 plantillas
-- Formulario de contacto
-- Dashboard demo
-- Modal de vista previa
-- Botón flotante WhatsApp
+Puedes levantar un servidor simple desde la carpeta del proyecto:
 
-**manifest.json**
-- Metadatos de la PWA
-- Iconos para dispositivos
-- Atajos de aplicación
-- Configuración de display y tema
+```powershell
+python -m http.server 8080
+```
 
-**sw.js**
-- Estrategia de caché offline
-- Sincronización en background
-- Fallback para conexiones débiles
+Luego abre:
 
-**styles.css**
-- Gradientes y texturas
-- Animaciones de reveal
-- Botón flotante WhatsApp
-- Estilos del modal
-- Responsive design
+```text
+http://localhost:8080
+```
 
-**script.js**
-- Lógica PWA (install, Service Worker)
-- Intersection Observer para reveals
-- Modal dinámico
-- Generador de enlaces WhatsApp
-- Animaciones de progreso
+## Personalizacion rapida
 
----
+### Cambiar numero de WhatsApp
 
-## 🎨 Diseño & UX
+Editar en script.js:
 
-### Paleta de Colores
-- **Trust Blue** (#0c2635, #14567a, #1f87b5) - Confianza
-- **Emerald** (#0d7a5a, #10a374) - Acción/crecimiento
-- **Slate** - Neutralidad y contraste
-
-### Tipografía
-- **Manrope** - Body text, clara y legible
-- **Outfit** - Headings, moderna y fuerte
-
-### Microinteracciones
-- ✨ Reveal animations en scroll
-- 🔄 Traniciones suaves en hover
-- 📊 Barras de progreso animadas
-- 💬 Modal con overlay semi-transparente
-
-### Responsivo
-- Mobile first approach
-- Grid layout adaptivo
-- Botón flotante oculto en desktop
-- Formulario grid dinámico (1 col móvil, 2 col desktop)
-
----
-
-## 🔧 Cómo Personalizar
-
-### Cambiar Número de WhatsApp
-Edita [`script.js`](script.js), línea ~47:
 ```javascript
-const WHATSAPP_NUMBER = '54911XXXXXXXX'; // Tu número internacional
+const WHATSAPP_NUMBER = '5492215047962';
 ```
 
-### Cambiar Colores
-Edita [`index.html`](index.html) en la configuración de Tailwind:
+### Cambiar password del panel CEO
+
+Editar en script.js:
+
 ```javascript
-colors: {
-  trust: { 900: "#0c2635" /* ... */ },
-  emeraldx: { 700: "#0d7a5a" /* ... */ }
-}
+const CEO_PASSWORD = '1234';
 ```
 
-### Agregar Más Plantillas
-1. Agrega entrada en `previewData` en [`script.js`](script.js)
-2. Crea card HTML en sección `#catalogo`
-3. Usa `data-template="clave"` en el botón preview
+### Ajustar conocimiento del asistente
 
-### Modificar Secciones
-Cada sección tiene clase `reveal` para animaciones de scroll. Personaliza libremente:
-- Hero section
-- Features section
-- Gallery section
-- Contact form
-- Metrics dashboard
+Editar la constante assistantKnowledge en script.js para agregar nuevas palabras clave y respuestas.
 
----
+## Notas
 
-## 📊 Metrics & Analytics
-
-El dashboard demo muestra:
-- **Ventas mensuales**: $4,820 (+28% vs mes anterior)
-- **Visitas semanales**: 12,340 (+34% por tráfico social)
-- **Pedidos cerrados**: 326 (+41% con carrito + WhatsApp)
-
-Las barras de progreso se animan con `cubic-bezier(0.22, 1, 0.36, 1)` al entrar en viewport.
-
----
-
-## 🚀 Deployment
-
-### En GitHub Pages (Actual)
-1. Push a rama `main`
-2. GitHubPages automáticamente despliega desde `/ImpulsoEmprendedor-/` en main
-3. HTTPS automático
-4. Dominio personalizado disponible en Settings
-
-### Configurar Dominio Personalizado
-1. Ve a **Settings → Pages**
-2. En "Custom domain", ingresa `tudominio.com`
-3. Agrega registros DNS de GitHub
-4. Habilita "Enforce HTTPS"
+- Las metricas actuales no reemplazan Google Analytics, Plausible o una base propia.
+- El asistente es una capa de respuestas automaticas basada en reglas y contenido local.
+- Si se necesita medicion real multiusuario, hace falta backend o servicio analitico externo.
 
 ---
 

@@ -1,24 +1,39 @@
-const CACHE_NAME = 'impulso-emprendedor-v1';
-const urlsToCache = [
-  '/ImpulsoEmprendedor-/',
-  '/ImpulsoEmprendedor-/index.html',
-  '/ImpulsoEmprendedor-/styles.css',
-  '/ImpulsoEmprendedor-/script.js',
-  '/ImpulsoEmprendedor-/manifest.json'
-];
+const CACHE_NAME = 'impulso-emprendedor-v3';
+
+const resolveBasePath = () => {
+  const scopeUrl = new URL(self.registration.scope);
+  return scopeUrl.pathname.endsWith('/') ? scopeUrl.pathname : `${scopeUrl.pathname}/`;
+};
+
+const createUrlsToCache = () => {
+  const basePath = resolveBasePath();
+
+  return [
+    basePath,
+    `${basePath}index.html`,
+    `${basePath}styles.css`,
+    `${basePath}script.js`,
+    `${basePath}manifest.json`
+  ];
+};
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('Service Worker: Cacheando archivos...');
-        return cache.addAll(urlsToCache).catch(err => {
+        return cache.addAll(createUrlsToCache()).catch(err => {
           console.log('Service Worker: Error al cachear algunos archivos (Esto es normal en desarrollo)', err);
           return Promise.resolve();
         });
       })
   );
-  self.skipWaiting();
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 self.addEventListener('activate', (event) => {

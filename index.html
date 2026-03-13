@@ -19,15 +19,15 @@
           },
           colors: {
             trust: {
-              900: "#0c2635",
-              700: "#14567a",
-              500: "#1f87b5",
-              100: "#d9f2ff"
+              900: "#081121",
+              700: "#00d1ff",
+              500: "#4f7cff",
+              100: "#08243b"
             },
             emeraldx: {
-              700: "#0d7a5a",
-              500: "#10a374",
-              100: "#dafaea"
+              700: "#00f5b0",
+              500: "#12d8a0",
+              100: "#063128"
             }
           }
         }
@@ -35,19 +35,24 @@
     };
   </script>
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0c2635" />
+  <meta name="theme-color" content="#050816" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Impulso Emprendedor" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body class="electric-theme bg-slate-950 text-slate-100 antialiased">
   <div class="site-bg" aria-hidden="true"></div>
 
   <header class="relative z-10">
     <div class="mx-auto max-w-6xl px-6 pb-20 pt-6 lg:px-8 lg:pb-24">
       <nav class="mb-14 flex items-center justify-between">
         <p class="font-display text-xl font-bold text-trust-900">Impulso Emprendedor</p>
+        <div class="hidden items-center gap-6 text-sm font-semibold text-slate-600 lg:flex">
+          <a href="#proceso" class="transition hover:text-trust-700">Proceso</a>
+          <a href="#catalogo" class="transition hover:text-trust-700">Catalogo</a>
+          <a href="#faq" class="transition hover:text-trust-700">FAQ</a>
+        </div>
         <div class="flex items-center gap-2">
           <button id="installAppBtn" class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700 hidden" aria-label="Instalar aplicación">⬇ Instalar App</button>
           <a href="#catalogo" class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700">Ver catalogo</a>
@@ -76,6 +81,10 @@
               <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Pedidos por WhatsApp</p>
               <p class="mt-2 text-3xl font-extrabold text-emeraldx-700">+52%</p>
             </div>
+            <div class="rounded-xl bg-white p-4 shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Tiempo de salida</p>
+              <p class="mt-2 text-3xl font-extrabold text-trust-900">7 dias</p>
+            </div>
           </div>
         </aside>
       </section>
@@ -83,6 +92,39 @@
   </header>
 
   <main class="relative z-10">
+    <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="reveal rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-xl shadow-slate-200/50 lg:p-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Pensado para vender mejor</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-trust-900">No es solo una web linda: es una estructura lista para captar, convencer y cerrar.</h2>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-3 lg:min-w-[420px]">
+            <div class="info-pill rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Entrega agil</p>
+              <p class="mt-2 text-sm font-semibold text-slate-800">Base lista para salir en pocos dias.</p>
+            </div>
+            <div class="info-pill rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Enfoque comercial</p>
+              <p class="mt-2 text-sm font-semibold text-slate-800">Cada bloque busca mover al visitante a una accion.</p>
+            </div>
+            <div class="info-pill rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+              <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Escalable</p>
+              <p class="mt-2 text-sm font-semibold text-slate-800">Se puede expandir con catalogo, pagos y automatizaciones.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+          <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-2">Moda y accesorios</span>
+          <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-2">Restaurantes y food</span>
+          <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-2">Servicios profesionales</span>
+          <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-2">Emprendimientos locales</span>
+          <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-2">Marcas personales</span>
+        </div>
+      </div>
+    </section>
+
     <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="reveal rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/60 lg:p-8">
         <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
@@ -128,6 +170,39 @@
       </div>
     </section>
 
+    <section id="proceso" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="mb-8 reveal">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Proceso simple</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Asi pasas de idea a web publicada sin frenar tu negocio</h2>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <article class="process-step reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-trust-700">Paso 1</p>
+          <h3 class="mt-3 font-display text-xl font-bold text-slate-900">Elegimos el modelo</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Definimos la plantilla que mejor encaja con tu forma de vender y con el tipo de cliente que quieres atraer.</p>
+        </article>
+
+        <article class="process-step reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-trust-700">Paso 2</p>
+          <h3 class="mt-3 font-display text-xl font-bold text-slate-900">Adaptamos tu marca</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Aterrizamos colores, textos, productos y servicios para que la web se sienta propia y profesional.</p>
+        </article>
+
+        <article class="process-step reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-trust-700">Paso 3</p>
+          <h3 class="mt-3 font-display text-xl font-bold text-slate-900">Activamos conversion</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Configuramos CTA, flujo a WhatsApp y bloques de confianza para que la web no solo muestre, sino que venda.</p>
+        </article>
+
+        <article class="process-step reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-trust-700">Paso 4</p>
+          <h3 class="mt-3 font-display text-xl font-bold text-slate-900">Publicamos y medimos</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Dejamos la web online, instalable como app y lista para revisar pedidos, visitas y oportunidades de mejora.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="catalogo" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="mb-8 reveal">
         <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Galeria de plantillas</p>
@@ -144,7 +219,10 @@
           <p class="mt-2 text-sm leading-relaxed text-slate-600">Ideal para tiendas de moda, belleza o tecnologia que necesitan aumentar ticket promedio y conversion con una navegacion simple.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
             <span class="rounded-full bg-trust-100 px-3 py-1 text-xs font-bold text-trust-700">Productos fisicos</span>
-            <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="ecommerce">Vista Previa</button>
+            <div class="flex items-center gap-2">
+              <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="ecommerce">Vista Previa</button>
+              <a href="#contacto" class="choose-template-btn rounded-lg border border-trust-100 px-4 py-2 text-sm font-bold text-trust-700 transition hover:border-trust-500 hover:text-trust-900" data-template="ecommerce">Quiero este</a>
+            </div>
           </div>
         </article>
 
@@ -157,7 +235,10 @@
           <p class="mt-2 text-sm leading-relaxed text-slate-600">Diseñado para quienes venden confianza: agenda integrada, portafolio y bloques persuasivos para captar clientes premium.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
             <span class="rounded-full bg-slate-200 px-3 py-1 text-xs font-bold text-slate-700">Agenda y portfolio</span>
-            <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="servicios">Vista Previa</button>
+            <div class="flex items-center gap-2">
+              <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="servicios">Vista Previa</button>
+              <a href="#contacto" class="choose-template-btn rounded-lg border border-trust-100 px-4 py-2 text-sm font-bold text-trust-700 transition hover:border-trust-500 hover:text-trust-900" data-template="servicios">Quiero este</a>
+            </div>
           </div>
         </article>
 
@@ -170,9 +251,37 @@
           <p class="mt-2 text-sm leading-relaxed text-slate-600">Convierte cada visita en pedido con menu visual, carrito de combos y boton directo a WhatsApp para confirmar en segundos.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
             <span class="rounded-full bg-emeraldx-100 px-3 py-1 text-xs font-bold text-emeraldx-700">Restaurantes y food</span>
-            <button class="preview-btn rounded-lg bg-emeraldx-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-emeraldx-500" data-template="food">Vista Previa</button>
+            <div class="flex items-center gap-2">
+              <button class="preview-btn rounded-lg bg-emeraldx-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-emeraldx-500" data-template="food">Vista Previa</button>
+              <a href="#contacto" class="choose-template-btn rounded-lg border border-emeraldx-100 px-4 py-2 text-sm font-bold text-emeraldx-700 transition hover:border-emeraldx-500 hover:text-emeraldx-700" data-template="food">Quiero este</a>
+            </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="reveal grid gap-6 rounded-3xl border border-slate-200 bg-trust-900 p-6 text-white shadow-2xl shadow-trust-900/20 lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
+        <article>
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-100">Diferencial</p>
+          <h2 class="mt-2 font-display text-3xl font-bold">Una base lista para crecer, no una pagina descartable.</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-trust-100">La idea es que puedas salir rapido ahora y seguir mejorando despues sin rehacer todo. Por eso el enfoque combina diseño, conversion y estructura tecnica simple de mantener.</p>
+        </article>
+
+        <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">Mensaje claro</p>
+            <p class="mt-2 text-sm text-white">Tu propuesta de valor se entiende en segundos, sin ruido ni bloques genericos.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">CTA con contexto</p>
+            <p class="mt-2 text-sm text-white">Los botones y formularios empujan al usuario en el momento correcto del recorrido.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
+            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">Lista para optimizar</p>
+            <p class="mt-2 text-sm text-white">Puedes sumar automatizaciones, pagos, campañas o tracking sin rehacer la base.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -182,6 +291,7 @@
           <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Paso final</p>
           <h2 class="mt-2 font-display text-3xl font-bold text-trust-900">Pide tu propuesta en menos de 1 minuto</h2>
           <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-600">Completa este formulario y se abrira WhatsApp con un mensaje listo para cotizar tu plantilla ideal. Asi avanzamos rapido y sin vueltas.</p>
+          <p class="mt-3 text-sm font-semibold text-trust-700">WhatsApp directo: +54 9 221 504 7962</p>
           <ul class="mt-5 space-y-2 text-sm text-slate-700">
             <li class="flex items-start gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emeraldx-700"></span><span>Respuesta agil con propuesta personalizada.</span></li>
             <li class="flex items-start gap-2"><span class="mt-1.5 h-2 w-2 rounded-full bg-emeraldx-700"></span><span>Enfoque en resultados de ventas y captacion.</span></li>
@@ -221,6 +331,47 @@
       </div>
     </section>
 
+    <section id="faq" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="mb-8 reveal">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Preguntas frecuentes</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Respuestas rapidas antes de pedir tu propuesta</h2>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        <details class="faq-item reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Cuanto se tarda en tener la web lista</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Depende del nivel de personalizacion, pero una base puede salir en pocos dias si el contenido y la propuesta estan claros desde el inicio.</p>
+        </details>
+
+        <details class="faq-item reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Puedo arrancar con algo simple y escalar despues</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si. La idea de estas plantillas es ganar velocidad hoy y dejar una base que pueda crecer con mas secciones, automatizaciones o integraciones despues.</p>
+        </details>
+
+        <details class="faq-item reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>La web queda conectada con WhatsApp</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si. El flujo actual ya prioriza contacto por WhatsApp con mensajes armados para acelerar cotizacion, consulta o pedido segun el tipo de negocio.</p>
+        </details>
+
+        <details class="faq-item reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Sirve si todavia no tengo marca o textos finales</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si, pero cuanto mas claro tengas tu oferta, mejor va a convertir. Se puede empezar con una version base y luego afinar textos, fotos y propuesta comercial.</p>
+        </details>
+      </div>
+    </section>
+
     <section id="metricas" class="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
       <div class="reveal rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:p-8">
         <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
@@ -228,7 +379,7 @@
             <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Dashboard demo</p>
             <h2 class="font-display text-3xl font-bold text-trust-900">Asi se veria tu panel de control</h2>
           </div>
-          <p class="max-w-md text-sm text-slate-600">Una vista clara para medir crecimiento y detectar que estrategia te esta generando mas ingresos.</p>
+          <p class="max-w-md text-sm text-slate-600">Una vista clara para medir crecimiento y detectar que estrategia te esta generando mas ingresos. El panel CEO de abajo a la izquierda guarda metricas reales en este dispositivo.</p>
         </div>
 
         <div class="grid gap-5 lg:grid-cols-3">
@@ -266,7 +417,10 @@
   <footer class="relative z-10 border-t border-slate-200 bg-white/70">
     <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-6 text-sm text-slate-600 lg:px-8">
       <p>Impulso Emprendedor</p>
-      <a href="#catalogo" class="font-semibold text-trust-700 hover:text-trust-900">Quiero digitalizar mi negocio</a>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#catalogo" class="font-semibold text-trust-700 hover:text-trust-900">Ver plantillas</a>
+        <a href="#contacto" class="font-semibold text-trust-700 hover:text-trust-900">Pedir propuesta</a>
+      </div>
     </div>
   </footer>
 
@@ -295,6 +449,105 @@
     </span>
     <span class="whatsapp-float__label">Cotizar por WhatsApp</span>
   </button>
+
+  <button id="assistantToggle" class="assistant-float" type="button" aria-label="Abrir asistente IA">
+    <span class="assistant-float__dot"></span>
+    <span class="assistant-float__label">IA</span>
+  </button>
+
+  <section id="assistantPanel" class="assistant-panel hidden" aria-hidden="true">
+    <div class="assistant-panel__header">
+      <div>
+        <p class="assistant-panel__eyebrow">Asistente IA</p>
+        <h3 class="assistant-panel__title">Respuestas automaticas sobre la web</h3>
+      </div>
+      <button id="assistantClose" class="assistant-panel__close" type="button" aria-label="Cerrar asistente">Cerrar</button>
+    </div>
+
+    <div id="assistantMessages" class="assistant-panel__messages"></div>
+
+    <div class="assistant-panel__quick-actions">
+      <button class="assistant-quick" type="button" data-question="Que plantilla me conviene si vendo productos">Plantilla para productos</button>
+      <button class="assistant-quick" type="button" data-question="Como funciona WhatsApp">WhatsApp</button>
+      <button class="assistant-quick" type="button" data-question="Se puede instalar como app">PWA</button>
+    </div>
+
+    <form id="assistantForm" class="assistant-panel__form">
+      <input id="assistantInput" class="assistant-panel__input" type="text" placeholder="Pregunta sobre plantillas, proceso, PWA o contacto" />
+      <button class="assistant-panel__send" type="submit">Responder</button>
+    </form>
+  </section>
+
+  <button id="ceoPanelToggle" class="ceo-float" type="button" aria-label="Abrir panel CEO">CEO</button>
+
+  <section id="ceoPanel" class="ceo-panel hidden" aria-hidden="true">
+    <div class="ceo-panel__header">
+      <div>
+        <p class="assistant-panel__eyebrow">Panel CEO</p>
+        <h3 class="assistant-panel__title">Metricas de view, conversion y crecimiento</h3>
+      </div>
+      <button id="ceoPanelClose" class="assistant-panel__close" type="button" aria-label="Cerrar panel CEO">Cerrar</button>
+    </div>
+
+    <div id="ceoLockScreen" class="ceo-lock-screen">
+      <p class="ceo-lock-screen__copy">Ingresa la contraseña para ver las metricas internas.</p>
+      <form id="ceoUnlockForm" class="ceo-lock-screen__form">
+        <input id="ceoPasswordInput" class="assistant-panel__input" type="password" placeholder="Contraseña" inputmode="numeric" />
+        <button class="assistant-panel__send" type="submit">Entrar</button>
+      </form>
+      <p id="ceoUnlockError" class="ceo-lock-screen__error hidden">Contraseña incorrecta.</p>
+    </div>
+
+    <div id="ceoDashboard" class="ceo-dashboard hidden">
+      <div class="ceo-stats-grid">
+        <article class="ceo-stat-card">
+          <p class="ceo-stat-card__label">Views</p>
+          <p id="ceoViews" class="ceo-stat-card__value">0</p>
+          <p class="ceo-stat-card__hint">Visitas registradas en este dispositivo</p>
+        </article>
+        <article class="ceo-stat-card">
+          <p class="ceo-stat-card__label">Conversion</p>
+          <p id="ceoConversions" class="ceo-stat-card__value">0</p>
+          <p id="ceoConversionRate" class="ceo-stat-card__hint">0%</p>
+        </article>
+        <article class="ceo-stat-card">
+          <p class="ceo-stat-card__label">Growth</p>
+          <p id="ceoGrowth" class="ceo-stat-card__value">0%</p>
+          <p class="ceo-stat-card__hint">Comparado contra los 7 dias previos</p>
+        </article>
+      </div>
+
+      <div class="ceo-progress-block">
+        <div class="ceo-progress-row">
+          <span>Ratio de conversion</span>
+          <span id="ceoConversionBadge">0%</span>
+        </div>
+        <div class="ceo-progress-track">
+          <div id="ceoConversionBar" class="ceo-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="ceo-progress-block">
+        <div class="ceo-progress-row">
+          <span>Crecimiento de views</span>
+          <span id="ceoGrowthBadge">0%</span>
+        </div>
+        <div class="ceo-progress-track">
+          <div id="ceoGrowthBar" class="ceo-progress-fill ceo-progress-fill--alt"></div>
+        </div>
+      </div>
+
+      <div class="ceo-dashboard__footer">
+        <p id="ceoLastReset" class="ceo-stat-card__hint">Sin reinicios registrados</p>
+        <button id="resetMetricsBtn" class="ceo-reset-btn" type="button">Limpiar metricas</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="updateToast" class="update-toast hidden" role="status" aria-live="polite">
+    <p class="update-toast__copy">Hay una actualizacion disponible para la web app.</p>
+    <button id="applyUpdateBtn" class="update-toast__action" type="button">OK</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
