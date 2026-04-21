@@ -11,18 +11,31 @@
   background: #f8fafc;
 }
 .demo-navbar {
-  min-height: 54px;
+  min-height: 48px;
   transition: background 0.2s;
+  color: #fff;
 }
 .demo-logo-img {
-  height: 38px;
-  max-width: 120px;
+  height: 34px;
+  max-width: 110px;
   object-fit: contain;
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(2,6,23,0.07);
   padding: 2px 6px;
 }
+/* Contraste y fuentes globales */
+.font-display, h1, h2, h3, h4, h5, h6 {
+  color: #081121;
+  letter-spacing: -0.01em;
+}
+.text-slate-800 { color: #1e293b; }
+.text-slate-700 { color: #334155; }
+.text-white { color: #fff; }
+.bg-trust-700 { background: #4f7cff; }
+.bg-emeraldx-700 { background: #00f5b0; }
+.shadow { box-shadow: 0 2px 12px rgba(2,6,23,0.09); }
+.drop-shadow { filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12)); }
 @media (max-width: 640px) {
   .demo-freemium-card {
     padding: 1.2rem 0.7rem;
