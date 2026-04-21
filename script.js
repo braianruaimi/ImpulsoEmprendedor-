@@ -33,7 +33,6 @@ const onboardingPass = document.getElementById('onboardingPass');
 const onboardingLoginBtn = document.getElementById('onboardingLoginBtn');
 const onboardingAssistantBtn = document.getElementById('onboardingAssistantBtn');
 const onboardingAssistantChat = document.getElementById('onboardingAssistantChat');
-const assistantMessages = document.getElementById('assistantMessages');
 const assistantInput = document.getElementById('assistantInput');
 const assistantSendBtn = document.getElementById('assistantSendBtn');
 if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && onboardingPass && onboardingLoginBtn) {
