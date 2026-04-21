@@ -1,3 +1,164 @@
+// --- Demo interactiva Freemium ---
+const demoColorPicker = document.getElementById('demoColorPicker');
+const demoLogoInput = document.getElementById('demoLogoInput');
+const demoNavbar = document.querySelector('.demo-navbar');
+const demoLogoImg = document.getElementById('demoLogoImg');
+if (demoColorPicker && demoNavbar) {
+  demoColorPicker.addEventListener('input', function () {
+    demoNavbar.style.background = demoColorPicker.value;
+  });
+}
+if (demoLogoInput && demoLogoImg) {
+  demoLogoInput.addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        demoLogoImg.src = ev.target.result;
+        demoLogoImg.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    } else {
+      demoLogoImg.src = '';
+      demoLogoImg.classList.add('hidden');
+    }
+  });
+}
+// --- Onboarding checklist ---
+const onboardingForm = document.getElementById('onboardingForm');
+const onboardingLogin = document.getElementById('onboardingLogin');
+const onboardingFields = document.getElementById('onboardingFields');
+const onboardingMsg = document.getElementById('onboardingMsg');
+const onboardingPass = document.getElementById('onboardingPass');
+const onboardingLoginBtn = document.getElementById('onboardingLoginBtn');
+const onboardingAssistantBtn = document.getElementById('onboardingAssistantBtn');
+const onboardingAssistantChat = document.getElementById('onboardingAssistantChat');
+const assistantMessages = document.getElementById('assistantMessages');
+const assistantInput = document.getElementById('assistantInput');
+const assistantSendBtn = document.getElementById('assistantSendBtn');
+if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && onboardingPass && onboardingLoginBtn) {
+  onboardingLoginBtn.addEventListener('click', function () {
+    if (onboardingPass.value.trim() === 'cliente2026') {
+      onboardingLogin.classList.add('hidden');
+      onboardingFields.classList.remove('hidden');
+      if (onboardingAssistantBtn && onboardingAssistantChat) {
+        onboardingAssistantBtn.classList.remove('hidden');
+        onboardingAssistantChat.classList.add('hidden');
+      }
+    } else {
+      onboardingPass.classList.add('border-red-500');
+      onboardingPass.value = '';
+      onboardingPass.placeholder = 'Contraseña incorrecta';
+      setTimeout(() => onboardingPass.classList.remove('border-red-500'), 1200);
+    }
+  });
+  onboardingForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    onboardingMsg.textContent = '¡Materiales enviados correctamente!';
+    onboardingMsg.classList.remove('hidden');
+    onboardingFields.classList.add('hidden');
+    setTimeout(() => {
+      onboardingMsg.classList.add('hidden');
+      onboardingLogin.classList.remove('hidden');
+      onboardingFields.reset?.();
+    }, 3500);
+  });
+  if (onboardingAssistantBtn && onboardingAssistantChat && assistantMessages && assistantInput && assistantSendBtn) {
+    onboardingAssistantBtn.addEventListener('click', function () {
+      onboardingAssistantChat.classList.toggle('hidden');
+      assistantInput.focus();
+    });
+    function addAssistantMsg(text, sender = 'ia') {
+      const msg = document.createElement('div');
+      msg.className = 'assistant-msg ' + sender;
+      msg.innerHTML = text;
+      assistantMessages.appendChild(msg);
+      assistantMessages.scrollTop = assistantMessages.scrollHeight;
+    }
+    function iaReply(userText) {
+      // Respuestas simuladas según contexto
+      let reply = '';
+      const t = userText.toLowerCase();
+      if (t.includes('texto') || t.includes('copy')) {
+        reply = 'Para mejorar tus textos, enfócate en claridad, beneficios y llamados a la acción. ¿Quieres que te sugiera un ejemplo para tu rubro?';
+      } else if (t.includes('foto') || t.includes('imagen')) {
+        reply = 'Usa fotos nítidas, bien iluminadas y que muestren tu producto/servicio en acción. Si necesitas bancos de imágenes gratuitos, te puedo recomendar algunos.';
+      } else if (t.includes('precio')) {
+        reply = 'Puedes subir tu lista de precios en PDF, Excel o CSV. Si tienes dudas sobre el formato, dime cómo lo tienes y te ayudo a convertirlo.';
+      } else if (t.includes('logo')) {
+        reply = 'El logo ideal es en PNG con fondo transparente. Si no tienes, puedo sugerir herramientas gratuitas para crearlo.';
+      } else if (t.includes('promoción') || t.includes('oferta')) {
+        reply = 'Las promociones funcionan mejor si son claras y con tiempo limitado. ¿Quieres ideas de textos persuasivos para tu oferta?';
+      } else if (t.includes('ayuda') || t.includes('asistente')) {
+        reply = '¡Estoy aquí para ayudarte! Pregúntame sobre textos, fotos, precios o cualquier material que debas subir.';
+      } else {
+        reply = '¿Podrías detallar tu consulta? Puedo ayudarte con textos, fotos, precios, logo, promociones y más.';
+      }
+      setTimeout(() => addAssistantMsg(reply, 'ia'), 700);
+    }
+    function sendAssistantMsg() {
+      const val = assistantInput.value.trim();
+      if (!val) return;
+      addAssistantMsg(val, 'user');
+      assistantInput.value = '';
+      iaReply(val);
+    }
+    assistantSendBtn.addEventListener('click', sendAssistantMsg);
+    assistantInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendAssistantMsg();
+      }
+    });
+  }
+}
+// --- Toast Ensenada ---
+function showEnsenadaToast(msg, duration = 5000) {
+  const toast = document.getElementById('ensenadaToast');
+  const toastMsg = document.getElementById('ensenadaToastMsg');
+  if (!toast || !toastMsg) return;
+  toastMsg.textContent = msg;
+  toast.classList.remove('hidden');
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, duration);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Ejemplo: alterna mensajes para simular actividad local
+  const mensajes = [
+    'Negocio en Ensenada activó su catálogo hace 2 horas',
+    '5 emprendedores de tu zona ya están digitalizados'
+  ];
+  const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+  setTimeout(() => showEnsenadaToast(msg), 1200);
+});
+
+// --- Quiz interactivo ---
+const quizForm = document.getElementById('quizForm');
+const quizResult = document.getElementById('quizResult');
+if (quizForm && quizResult) {
+  quizForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let score = 0;
+    for (let i = 1; i <= 5; i++) {
+      const val = parseInt(quizForm[`q${i}`]?.value || '0', 10);
+      score += val;
+    }
+    // Recomendar plantilla según puntaje
+    let recomendacion = '';
+    if (score <= 10) {
+      recomendacion = 'Te conviene la plantilla <b>Básico</b> para dar tu primer paso digital.';
+    } else if (score <= 18) {
+      recomendacion = 'La plantilla <b>Pro</b> es ideal para escalar tu negocio online.';
+    } else {
+      recomendacion = '¡Estás listo para la plantilla <b>Enterprise</b> y automatizar todo tu proceso!';
+    }
+    quizResult.innerHTML = `Puntaje: <span style="color:#00f5b0">${score}/25</span><br>${recomendacion}`;
+    quizResult.classList.remove('hidden');
+    quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
 const resolveBasePath = () => {
   const [firstSegment] = window.location.pathname.split('/').filter(Boolean);
   return firstSegment === 'ImpulsoEmprendedor-' ? '/ImpulsoEmprendedor-/' : '/';
@@ -323,31 +484,55 @@ const resolveTemplate = () => {
 
 const buildWhatsappLink = ({ name = '', business = '', template = '', goal = '', source = '' }) => {
   const templateLabel = previewData[template]?.tag || 'Plantilla web personalizada';
-  const messageLines = ['Hola, quiero digitalizar mi negocio con una plantilla web.'];
-
-  if (name) {
-    messageLines.push(`Mi nombre es ${name}.`);
-  }
-
-  if (business) {
-    messageLines.push(`Negocio: ${business}.`);
-  }
-
-  messageLines.push(`Plantilla de interes: ${templateLabel}.`);
-
-  if (goal) {
-    messageLines.push(`Objetivo principal: ${goal}.`);
-  }
-
-  if (source) {
-    messageLines.push(`Canal de contacto: ${source}.`);
-  }
-
-  messageLines.push(`WhatsApp solicitado: ${DISPLAY_WHATSAPP_NUMBER}.`);
-  messageLines.push('Quiero recibir una propuesta y siguientes pasos para empezar.');
-
+  const messageLines = [
+    'Hola, quiero digitalizar mi negocio con una plantilla web.',
+    name ? `Mi nombre es: ${name}` : '',
+    business ? `Negocio: ${business}` : '',
+    `Plantilla de interés: ${templateLabel}`,
+    goal ? `Objetivo principal: ${goal}` : '',
+    source ? `Canal de contacto: ${source}` : '',
+    '',
+    'Quiero recibir una propuesta y siguientes pasos para empezar.'
+  ].filter(Boolean);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageLines.join('\n'))}`;
 };
+// --- ANIMACIÓN DE MÉTRICAS ---
+function animateCountUp(element, target, duration = 1200) {
+  let start = 0;
+  const startTime = performance.now();
+  const step = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(progress * (target - start) + start);
+    element.textContent = value.toLocaleString('es-AR');
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  };
+  requestAnimationFrame(step);
+}
+
+function animateMetricNumbersOnScroll() {
+  const metricSection = document.getElementById('metricas');
+  if (!metricSection) return;
+  const metricNumbers = metricSection.querySelectorAll('.count-animate');
+  let animated = false;
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        metricNumbers.forEach(el => {
+          const target = parseInt(el.getAttribute('data-count') || '0', 10);
+          animateCountUp(el, target);
+        });
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(metricSection);
+}
+
+document.addEventListener('DOMContentLoaded', animateMetricNumbersOnScroll);
 
 const showUpdateToast = () => {
   openPanel(updateToast);
