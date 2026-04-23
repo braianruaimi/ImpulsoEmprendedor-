@@ -49,9 +49,10 @@
       <nav class="mb-14 flex items-center justify-between">
         <p class="font-display text-xl font-bold text-trust-900">Impulso Emprendedor</p>
         <div class="hidden items-center gap-6 text-sm font-semibold text-slate-600 lg:flex">
-          <a href="#proceso" class="transition hover:text-trust-700">Proceso</a>
+          <a href="#metricas" class="transition hover:text-trust-700">Metricas</a>
           <a href="#catalogo" class="transition hover:text-trust-700">Catalogo</a>
-          <a href="#faq" class="transition hover:text-trust-700">FAQ</a>
+          <a href="#precios" class="transition hover:text-trust-700">Precios</a>
+          <a href="#contacto" class="transition hover:text-trust-700">Contacto</a>
         </div>
         <div class="flex items-center gap-2">
           <button id="installAppBtn" class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-trust-500 hover:text-trust-700 hidden" aria-label="Instalar aplicación">⬇ Instalar App</button>
@@ -88,7 +89,7 @@
         </aside>
       </section>
 
-        <section id="precios" class="reveal mx-auto max-w-6xl px-0 pb-14 lg:px-0">
+        <section id="precios-legacy" class="hidden reveal mx-auto max-w-6xl px-0 pb-14 lg:px-0">
           <div class="mb-8 reveal">
             <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Planes de precios</p>
             <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Elige el plan que mejor se adapta a tu negocio</h2>
@@ -140,6 +141,57 @@
   </header>
 
   <main class="relative z-10">
+    <section id="metricas" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white p-0 shadow-xl shadow-slate-200/60">
+        <div class="flex flex-col gap-6 bg-gradient-to-br from-trust-900 to-trust-700 p-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-emeraldx-700">Centro de Control CEO</p>
+            <h2 class="mb-2 font-display text-4xl font-extrabold text-white">No solo una web, es tu panel de decisiones</h2>
+            <p class="max-w-lg text-base text-white/80">Visualiza el crecimiento de tu negocio en tiempo real y toma decisiones basadas en datos, no suposiciones.</p>
+          </div>
+          <div class="flex flex-col gap-2 md:items-end">
+            <span class="inline-block rounded-full bg-white/10 px-4 py-2 text-xs font-bold tracking-widest text-emeraldx-700 shadow">Simulación de métricas reales</span>
+          </div>
+        </div>
+        <div class="grid items-center gap-8 bg-white p-8 md:grid-cols-[2fr_1fr]">
+          <div class="flex flex-col gap-8">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div class="ceo-metric-card glass-card rounded-2xl p-6 text-center shadow-lg">
+                <span class="mb-1 text-xs font-bold uppercase tracking-wide text-trust-700">Ventas mensuales</span>
+                <span class="ceo-animated-number text-4xl font-extrabold text-trust-900" id="ceoVentasAnim">$1.284.000</span>
+                <span class="mt-1 text-sm font-semibold text-emeraldx-700">+28% vs mes anterior</span>
+              </div>
+              <div class="ceo-metric-card glass-card rounded-2xl p-6 text-center shadow-lg">
+                <span class="mb-1 text-xs font-bold uppercase tracking-wide text-trust-700">Visitas semanales</span>
+                <span class="ceo-animated-number text-4xl font-extrabold text-trust-900" id="ceoVisitasAnim">8.460</span>
+                <span class="mt-1 text-sm font-semibold text-emeraldx-700">+34% por tráfico social</span>
+              </div>
+              <div class="ceo-metric-card glass-card rounded-2xl p-6 text-center shadow-lg">
+                <span class="mb-1 text-xs font-bold uppercase tracking-wide text-trust-700">Pedidos cerrados</span>
+                <span class="ceo-animated-number text-4xl font-extrabold text-emeraldx-700" id="ceoPedidosAnim">186</span>
+                <span class="mt-1 text-sm font-semibold text-emeraldx-700">+41% con carrito + WhatsApp</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            <div class="w-full max-w-xs">
+              <span class="mb-2 block text-center text-xs font-bold uppercase tracking-wide text-trust-700">Crecimiento de Ventas</span>
+              <div class="ceo-graph flex h-40 items-end gap-2 rounded-xl bg-gradient-to-b from-white to-slate-100 p-4 shadow-inner">
+                <div class="ceo-bar w-6 rounded-lg bg-trust-700" style="height: 42%;"></div>
+                <div class="ceo-bar w-6 rounded-lg bg-trust-700" style="height: 56%;"></div>
+                <div class="ceo-bar w-6 rounded-lg bg-emeraldx-700" style="height: 68%;"></div>
+                <div class="ceo-bar w-6 rounded-lg bg-emeraldx-700" style="height: 82%;"></div>
+                <div class="ceo-bar w-6 rounded-lg bg-emeraldx-700" style="height: 96%;"></div>
+              </div>
+              <div class="mt-2 flex justify-between text-xs text-slate-500">
+                <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="reveal rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-xl shadow-slate-200/50 lg:p-8">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -359,6 +411,132 @@
       <p class="mt-8 text-center text-sm font-semibold text-slate-600 lg:text-base">Estos son solo algunos ejemplos. He desarrollado más de <span class="text-trust-700">33</span> soluciones digitales a medida. Consultame por tu rubro específico.</p>
     </section>
 
+    <section id="sobre-desarrollador" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="braian.jpg" alt="Braian Ruaimi - CEO Impulso Emprendedor" />
+          <div class="location-badge">Ensenada, Buenos Aires</div>
+        </div>
+
+        <div class="about-content">
+          <span class="about-label">Fundador &amp; Desarrollador</span>
+          <h2>Tecnología con propósito local</h2>
+          <p class="about-lead">"Mi objetivo es que el comercio de nuestra zona no solo compita, sino que lidere en la era digital."</p>
+
+          <p class="about-text">
+            Soy <strong>Braian Ruaimi</strong>. Como desarrollador y emprendedor nacido en Ensenada, entiendo los desafíos reales de los negocios de nuestra comunidad.
+            No creo en soluciones genéricas; creo en herramientas potentes que simplifiquen tu trabajo diario.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar">
+              <strong>Cercanía Real</strong>
+              <span>Soporte directo y conocimiento del mercado local.</span>
+            </div>
+            <div class="pillar">
+              <strong>Código Propio</strong>
+              <span>Sistemas robustos, rápidos y sin dependencias de terceros.</span>
+            </div>
+          </div>
+
+          <div class="about-actions">
+            <a href="https://wa.me/5492215047962" class="about-btn" target="_blank" rel="noopener">Hablemos de tu proyecto</a>
+            <a href="https://wa.me/5492215047962" class="about-btn about-btn--ghost" target="_blank" rel="noopener">Quiero hablar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="mb-8 reveal">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Planes de precios</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Elige el plan que mejor se adapta a tu negocio</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="pricing-card reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-2xl shadow-slate-200/60">
+          <h3 class="mb-2 font-display text-xl font-bold text-trust-900">Básico</h3>
+          <p class="mb-2 text-3xl font-extrabold text-trust-700">$69.000</p>
+          <ul class="mb-6 space-y-2 text-sm text-slate-600">
+            <li>Landing Page de Alto Impacto</li>
+            <li>Catálogo Digital Esencial</li>
+            <li>Conexión Directa a WhatsApp</li>
+            <li>Optimización Móvil y PWA</li>
+            <li>Soporte por email</li>
+          </ul>
+          <p class="mb-6 text-sm font-semibold text-slate-700">Enfoque: Ideal para emprendedores que necesitan empezar a vender hoy mismo.</p>
+          <a href="#contacto" class="cta-btn-pricing w-full rounded-xl bg-trust-700 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-trust-900">Elegir Básico</a>
+        </article>
+        <article class="pricing-card reveal relative flex flex-col rounded-2xl border-4 border-trust-700 bg-white p-7 shadow-2xl shadow-trust-700/20 ring-4 ring-trust-700/10 scale-105">
+          <h3 class="mb-2 font-display text-xl font-bold text-trust-900">Pro</h3>
+          <p class="mb-1 inline-flex w-fit rounded-full bg-emeraldx-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-emeraldx-700">Más Elegido</p>
+          <p class="mb-2 text-3xl font-extrabold text-trust-700">$99.000</p>
+          <ul class="mb-6 space-y-2 text-sm text-slate-600">
+            <li>Todo lo del Básico</li>
+            <li>Sistema de Carrito Inteligente</li>
+            <li>Panel de Métricas CEO</li>
+            <li>Sincronización con Redes Sociales</li>
+            <li>Soporte prioritario vía WhatsApp</li>
+          </ul>
+          <p class="mb-6 text-sm font-semibold text-slate-700">Enfoque: El equilibrio perfecto para negocios que buscan profesionalizar sus ventas y servicio.</p>
+          <a href="#contacto" class="cta-btn-pricing cta-btn-pricing--pro w-full rounded-xl bg-emeraldx-700 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-emeraldx-500">Elegir Pro</a>
+        </article>
+        <article class="pricing-card reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-2xl shadow-slate-200/60">
+          <h3 class="mb-2 font-display text-xl font-bold text-trust-900">Enterprise</h3>
+          <p class="mb-2 text-3xl font-extrabold text-trust-700">$149.000</p>
+          <ul class="mb-6 space-y-2 text-sm text-slate-600">
+            <li>Todo lo del Pro</li>
+            <li>Automatizaciones a Medida</li>
+            <li>Pasarela de Pagos Online</li>
+            <li>Consultoría Estratégica 1 a 1</li>
+            <li>Mantenimiento y actualizaciones premium</li>
+          </ul>
+          <p class="mb-6 text-sm font-semibold text-slate-700">Enfoque: Una solución de software completa y lista para escalar al máximo nivel.</p>
+          <a href="#contacto" class="cta-btn-pricing w-full rounded-xl bg-trust-700 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-trust-900">Elegir Enterprise</a>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="faq" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="mb-8 reveal">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Preguntas frecuentes</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Respuestas rapidas antes de pedir tu propuesta</h2>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        <details class="faq-item rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Cuanto se tarda en tener la web lista</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Depende del nivel de personalizacion, pero una base puede salir en pocos dias si el contenido y la propuesta estan claros desde el inicio.</p>
+        </details>
+
+        <details class="faq-item rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Puedo arrancar con algo simple y escalar despues</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si. La idea de estas plantillas es ganar velocidad hoy y dejar una base que pueda crecer con mas secciones, automatizaciones o integraciones despues.</p>
+        </details>
+
+        <details class="faq-item rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>La web queda conectada con WhatsApp</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si. El flujo actual ya prioriza contacto por WhatsApp con mensajes armados para acelerar cotizacion, consulta o pedido segun el tipo de negocio.</p>
+        </details>
+
+        <details class="faq-item rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/40">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-bold text-slate-900">
+            <span>Sirve si todavia no tengo marca o textos finales</span>
+            <svg class="h-5 w-5 text-trust-700" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v12"/><path d="M4 10h12"/></svg>
+          </summary>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">Si, pero cuanto mas claro tengas tu oferta, mejor va a convertir. Se puede empezar con una version base y luego afinar textos, fotos y propuesta comercial.</p>
+        </details>
+      </div>
+    </section>
 
     <section id="contacto" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="reveal grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:grid-cols-[1fr_1fr] lg:p-8">
@@ -406,7 +584,7 @@
       </div>
     </section>
 
-    <section id="faq" class="reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+    <section id="faq-legacy" class="hidden reveal mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="mb-8 reveal">
         <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Preguntas frecuentes</p>
         <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Respuestas rapidas antes de pedir tu propuesta</h2>
@@ -447,7 +625,7 @@
       </div>
     </section>
 
-    <section id="metricas" class="reveal mx-auto max-w-6xl px-6 pb-20 lg:px-8">
+    <section id="metricas-legacy" class="hidden reveal mx-auto max-w-6xl px-6 pb-20 lg:px-8">
       <div class="rounded-3xl border border-slate-200 bg-white p-0 shadow-xl shadow-slate-200/60 lg:p-0 overflow-hidden">
         <div class="bg-gradient-to-br from-trust-900 to-trust-700 p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
@@ -505,7 +683,7 @@
     <span id="ensenadaToastMsg">Negocio en Ensenada activó su catálogo hace 2 horas</span>
   </div>
     <!-- ONBOARDING: Checklist de materiales -->
-    <section id="onboarding" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+    <section id="onboarding" class="hidden mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="mb-8 reveal">
         <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Checklist de materiales</p>
         <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Subí todo lo necesario para tu web</h2>
