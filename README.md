@@ -169,7 +169,7 @@ Proyecto de Impulso Emprendedor. Libre para uso personal y comercial.
 
 ## 📧 Contacto & Soporte
 
-**WhatsApp**: [Envía mensaje](https://wa.me/5490000000000)  
+**WhatsApp**: [Envía mensaje](https://wa.me/5492215047962)  
 **Email**: contacto@impulsoemprendedor.com
 
 ---

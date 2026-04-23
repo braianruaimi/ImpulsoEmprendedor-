@@ -1,63 +1,3 @@
-// Mostrar/ocultar detalles de la tarjeta FOOD
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.getElementById('food-toggle');
-  const details = document.getElementById('food-details');
-  if (toggle && details) {
-    toggle.addEventListener('click', () => {
-      details.classList.toggle('hidden');
-    });
-  }
-});
-// --- Calculador de Fuga de Ventas ---
-function calcularFugaVentas() {
-  const slider = document.getElementById('fugaSlider');
-  const sliderVal = document.getElementById('fugaSliderVal');
-  const ticketInput = document.getElementById('fugaTicket');
-  const resultado = document.getElementById('fugaResultado');
-  if (!slider || !sliderVal || !ticketInput || !resultado) return;
-  function updateFuga() {
-    const mensajes = parseInt(slider.value, 10) || 0;
-    const ticket = parseInt(ticketInput.value, 10) || 0;
-    sliderVal.textContent = mensajes;
-    // Lógica: 30% de mensajes se pierden, 30 días al mes
-    const perdidos = Math.round(mensajes * 0.3 * 30 * ticket);
-    resultado.textContent = `Estás perdiendo aproximadamente $${perdidos.toLocaleString('es-AR')} pesos por mes por falta de automatización.`;
-  }
-  slider.addEventListener('input', updateFuga);
-  ticketInput.addEventListener('input', updateFuga);
-  updateFuga();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  // ...existing code...
-  calcularFugaVentas();
-});
-// --- Demo interactiva Freemium ---
-const demoColorPicker = document.getElementById('demoColorPicker');
-const demoLogoInput = document.getElementById('demoLogoInput');
-const demoNavbar = document.querySelector('.demo-navbar');
-const demoLogoImg = document.getElementById('demoLogoImg');
-if (demoColorPicker && demoNavbar) {
-  demoColorPicker.addEventListener('input', function () {
-    demoNavbar.style.background = demoColorPicker.value;
-  });
-}
-if (demoLogoInput && demoLogoImg) {
-  demoLogoInput.addEventListener('change', function (e) {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = function (ev) {
-        demoLogoImg.src = ev.target.result;
-        demoLogoImg.classList.remove('hidden');
-      };
-      reader.readAsDataURL(file);
-    } else {
-      demoLogoImg.src = '';
-      demoLogoImg.classList.add('hidden');
-    }
-  });
-}
 // --- Onboarding checklist ---
 const onboardingForm = document.getElementById('onboardingForm');
 const onboardingLogin = document.getElementById('onboardingLogin');
@@ -67,10 +7,10 @@ const onboardingPass = document.getElementById('onboardingPass');
 const onboardingLoginBtn = document.getElementById('onboardingLoginBtn');
 const onboardingAssistantBtn = document.getElementById('onboardingAssistantBtn');
 const onboardingAssistantChat = document.getElementById('onboardingAssistantChat');
-const assistantInput = document.getElementById('assistantInput');
-const assistantSendBtn = document.getElementById('assistantSendBtn');
+const onboardingAssistantInput = document.getElementById('onboardingAssistantInput');
+const onboardingAssistantSendBtn = document.getElementById('onboardingAssistantSendBtn');
 if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && onboardingPass && onboardingLoginBtn) {
-  const onboardingAssistantMessages = document.getElementById('assistantMessages');
+  const onboardingAssistantMessages = document.getElementById('onboardingAssistantMessages');
 
   onboardingLoginBtn.addEventListener('click', function () {
     if (onboardingPass.value.trim() === 'cliente2026') {
@@ -95,13 +35,14 @@ if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && on
     setTimeout(() => {
       onboardingMsg.classList.add('hidden');
       onboardingLogin.classList.remove('hidden');
-      onboardingFields.reset?.();
+      onboardingForm.reset();
+      onboardingFields.classList.add('hidden');
     }, 3500);
   });
-  if (onboardingAssistantBtn && onboardingAssistantChat && onboardingAssistantMessages && assistantInput && assistantSendBtn) {
+  if (onboardingAssistantBtn && onboardingAssistantChat && onboardingAssistantMessages && onboardingAssistantInput && onboardingAssistantSendBtn) {
     onboardingAssistantBtn.addEventListener('click', function () {
       onboardingAssistantChat.classList.toggle('hidden');
-      assistantInput.focus();
+      onboardingAssistantInput.focus();
     });
     function addAssistantMsg(text, sender = 'ia') {
       const msg = document.createElement('div');
@@ -132,14 +73,14 @@ if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && on
       setTimeout(() => addAssistantMsg(reply, 'ia'), 700);
     }
     function sendAssistantMsg() {
-      const val = assistantInput.value.trim();
+      const val = onboardingAssistantInput.value.trim();
       if (!val) return;
       addAssistantMsg(val, 'user');
-      assistantInput.value = '';
+      onboardingAssistantInput.value = '';
       iaReply(val);
     }
-    assistantSendBtn.addEventListener('click', sendAssistantMsg);
-    assistantInput.addEventListener('keydown', function(e) {
+    onboardingAssistantSendBtn.addEventListener('click', sendAssistantMsg);
+    onboardingAssistantInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
         e.preventDefault();
         sendAssistantMsg();
@@ -160,7 +101,6 @@ function showEnsenadaToast(msg, duration = 5000) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Ejemplo: alterna mensajes para simular actividad local
   const mensajes = [
     'Negocio en Ensenada activó su catálogo hace 2 horas',
     '5 emprendedores de tu zona ya están digitalizados'
@@ -168,32 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
   setTimeout(() => showEnsenadaToast(msg), 1200);
 });
-
-// --- Quiz interactivo ---
-const quizForm = document.getElementById('quizForm');
-const quizResult = document.getElementById('quizResult');
-if (quizForm && quizResult) {
-  quizForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let score = 0;
-    for (let i = 1; i <= 5; i++) {
-      const val = parseInt(quizForm[`q${i}`]?.value || '0', 10);
-      score += val;
-    }
-    // Recomendar plantilla según puntaje
-    let recomendacion = '';
-    if (score <= 10) {
-      recomendacion = 'Te conviene la plantilla <b>Básico</b> para dar tu primer paso digital.';
-    } else if (score <= 18) {
-      recomendacion = 'La plantilla <b>Pro</b> es ideal para escalar tu negocio online.';
-    } else {
-      recomendacion = '¡Estás listo para la plantilla <b>Enterprise</b> y automatizar todo tu proceso!';
-    }
-    quizResult.innerHTML = `Puntaje: <span style="color:#00f5b0">${score}/25</span><br>${recomendacion}`;
-    quizResult.classList.remove('hidden');
-    quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-}
 const resolveBasePath = () => {
   const [firstSegment] = window.location.pathname.split('/').filter(Boolean);
   return firstSegment === 'ImpulsoEmprendedor-' ? '/ImpulsoEmprendedor-/' : '/';
@@ -509,49 +423,6 @@ const closePanel = (panel) => {
   panel?.setAttribute('aria-hidden', 'true');
 };
 
-window.openFloatingWhatsApp = () => {
-  const template = resolveTemplate();
-  const nameValue = document.getElementById('clientName')?.value?.trim() || '';
-  const businessValue = document.getElementById('businessName')?.value?.trim() || '';
-  const goalValue = document.getElementById('goal')?.value?.trim() || '';
-
-  trackMetric('conversion');
-
-  const link = buildWhatsappLink({
-    name: nameValue,
-    business: businessValue,
-    template,
-    goal: goalValue,
-    source: 'Boton Flotante'
-  });
-
-  window.open(link, '_blank', 'noopener,noreferrer');
-};
-
-window.openAssistantPanelFallback = () => {
-  openPanel(assistantPanel);
-  assistantInput?.focus();
-};
-
-window.closeAssistantPanelFallback = () => {
-  closePanel(assistantPanel);
-};
-
-window.openCeoPanelFallback = () => {
-  openPanel(ceoPanel);
-
-  if (sessionStorage.getItem(STORAGE_KEYS.ceoUnlocked) === 'true') {
-    unlockCeoPanel();
-    return;
-  }
-
-  lockCeoPanel();
-};
-
-window.closeCeoPanelFallback = () => {
-  closePanel(ceoPanel);
-};
-
 const resolveTemplate = () => {
   if (templateChoice && templateChoice.value) {
     return templateChoice.value;
@@ -642,9 +513,9 @@ function animateCeoDashboardOnScroll() {
     entries.forEach(entry => {
       if (entry.isIntersecting && !animated) {
         animated = true;
-        animateCeoNumber('ceoVentasAnim', 4820, '$');
-        animateCeoNumber('ceoVisitasAnim', 12340);
-        animateCeoNumber('ceoPedidosAnim', 326);
+        animateCeoNumber('ceoVentasAnim', 1284000, '$');
+        animateCeoNumber('ceoVisitasAnim', 8460);
+        animateCeoNumber('ceoPedidosAnim', 186);
         obs.disconnect();
       }
     });
@@ -869,24 +740,6 @@ applyUpdateButton?.addEventListener('click', () => {
   hideUpdateToast();
 });
 
-document.querySelectorAll('.preview-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    openModal(button.dataset.template || '');
-  });
-});
-
-document.querySelectorAll('.choose-template-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    const templateKey = button.dataset.template;
-    if (!templateKey || !templateChoice) {
-      return;
-    }
-
-    selectedTemplateKey = templateKey;
-    templateChoice.value = templateKey;
-  });
-});
-
 modalRequestButton?.addEventListener('click', () => {
   if (templateChoice && selectedTemplateKey) {
     templateChoice.value = selectedTemplateKey;
@@ -945,7 +798,7 @@ floatingWhatsappButton?.addEventListener('click', () => {
     source: 'Boton Flotante'
   });
 
-  window.open(link, '_blank', 'noopener,noreferrer');
+  floatingWhatsappButton.href = link;
 });
 
 assistantToggle?.addEventListener('click', () => {
