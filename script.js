@@ -531,7 +531,47 @@ function animateMetricNumbersOnScroll() {
   observer.observe(metricSection);
 }
 
-document.addEventListener('DOMContentLoaded', animateMetricNumbersOnScroll);
+
+// --- Animación de contadores CEO Interactivo ---
+function animateCeoNumber(elementId, target, prefix = '', duration = 1200) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  let start = 0;
+  const startTime = performance.now();
+  const step = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(progress * (target - start) + start);
+    el.textContent = prefix + value.toLocaleString('es-AR');
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  };
+  requestAnimationFrame(step);
+}
+
+function animateCeoDashboardOnScroll() {
+  const ceoSection = document.getElementById('metricas');
+  if (!ceoSection) return;
+  let animated = false;
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        animateCeoNumber('ceoVentasAnim', 4820, '$');
+        animateCeoNumber('ceoVisitasAnim', 12340);
+        animateCeoNumber('ceoPedidosAnim', 326);
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(ceoSection);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  animateMetricNumbersOnScroll();
+  animateCeoDashboardOnScroll();
+});
 
 const showUpdateToast = () => {
   openPanel(updateToast);
