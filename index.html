@@ -42,44 +42,29 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="electric-theme bg-slate-950 text-slate-100 antialiased">
-  <!-- Barra de menú inferior tipo App (solo móvil) -->
-  <nav id="appNavBar" class="app-navbar fixed bottom-0 left-0 right-0 z-40 flex justify-around items-center bg-white border-t border-slate-200 shadow-lg py-2 px-2 md:hidden" role="navigation" aria-label="Menú principal">
-    <a href="#catalogo" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-      <span class="material-icons" aria-hidden="true">view_quilt</span>
-      Plantillas
-    </a>
-    <a href="#metricas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-      <span class="material-icons" aria-hidden="true">insights</span>
-      Métricas
-    </a>
-    <a href="#fuga-ventas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-      <span class="material-icons" aria-hidden="true">trending_down</span>
-      Fuga
-    </a>
-    <a href="#contacto" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-      <span class="material-icons" aria-hidden="true">chat</span>
-      WhatsApp
-    </a>
-  </nav>
-  <!-- Calculador de Fuga de Ventas -->
-  <section id="fuga-ventas" class="mx-auto max-w-2xl px-6 pb-14 lg:px-8">
-    <div class="rounded-3xl border border-emeraldx-700 bg-white p-8 shadow-xl shadow-emeraldx-700/10 flex flex-col gap-6 items-center">
-      <h2 class="font-display text-2xl font-bold text-trust-900 mb-2 text-center">Calcula tu Fuga de Ventas</h2>
-      <p class="text-base text-slate-700 text-center mb-2">¿Cuántos mensajes de clientes recibes por día?</p>
-      <div class="w-full flex flex-col items-center gap-2">
-        <input type="range" id="fugaSlider" min="1" max="100" value="10" class="w-full accent-emeraldx-700" />
-        <span class="text-sm text-trust-700">Mensajes por día: <span id="fugaSliderVal">10</span></span>
+  <main class="relative z-10">
+    <!-- Hero y secciones principales ...existing code... -->
+    <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
+      <div class="rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-xl shadow-slate-200/50 lg:p-8">
+        <!-- ...hero y bloques intro... -->
       </div>
-      <div class="w-full flex flex-col items-center gap-2">
-        <label for="fugaTicket" class="text-sm text-slate-700">Ticket promedio ($):</label>
-        <input type="number" id="fugaTicket" min="100" max="100000" value="5000" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-40 text-center" />
-      </div>
-      <div class="mt-4 w-full text-center">
-        <span id="fugaResultado" class="text-lg font-bold text-emeraldx-700">Estás perdiendo aproximadamente $45,000 pesos por mes por falta de automatización.</span>
-      </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ...resto de secciones (precios, características, etc)... -->
+  </main>
   <div class="site-bg" aria-hidden="true"></div>
+  <script>
+    // Fallback por si el script externo no carga a tiempo
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('food-toggle');
+      const details = document.getElementById('food-details');
+      if (toggle && details) {
+        toggle.addEventListener('click', () => {
+          details.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
 
   <header class="relative z-10">
     <div class="mx-auto max-w-6xl px-6 pb-20 pt-6 lg:px-8 lg:pb-24">
@@ -291,39 +276,99 @@
 
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         <!-- Plantilla E-commerce -->
-        <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
+        <article class="template-card template-card--ecommerce flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
           <div class="mockup-mobile mx-auto mb-4">
             <div class="mockup-screen">
-              <img src="https://i.imgur.com/1Q9Z1ZB.png" alt="Demo E-commerce" class="mockup-img scroll-on-hover" loading="lazy">
+              <iframe src="https://velavita.site/" title="Vista previa real de E-commerce Minimalista" class="mockup-iframe" loading="lazy"></iframe>
             </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900 mb-1">E-commerce Minimalista</h3>
           <p class="text-sm text-slate-700 mb-3">Perfecto para marcas de productos físicos que quieren vender más con una experiencia limpia.</p>
-          <button class="demo-btn-main rounded-xl bg-trust-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-trust-900 w-full mt-auto">Ver Demo Real</button>
+          <details class="info-panel info-panel--ecommerce mb-3 w-full rounded-2xl border border-slate-200 bg-slate-50 p-3 text-slate-800">
+            <summary class="info-summary info-summary--ecommerce cursor-pointer list-none rounded-xl border border-trust-700 bg-white px-4 py-2 text-xs font-bold text-trust-700 transition hover:bg-trust-100/40">
+              <span class="info-summary__label">Info</span>
+              <span class="info-summary__icon" aria-hidden="true">↗</span>
+            </summary>
+            <div class="info-panel__content mt-4">
+              <h4 class="font-display mb-2 text-lg font-bold text-trust-900">✨ Especialización: Experiencias de Marca Premium (Luxury Style)</h4>
+              <ul class="list-disc pl-5 mb-3 text-sm text-slate-700">
+                <li><strong>Estética Visual Minimalist &amp; Clean:</strong> Diseño basado en espacios en blanco y tipografías elegantes para resaltar la calidad del producto, con animaciones sutiles que guían al usuario sin interrumpir la navegación.</li>
+                <li><strong>Catálogo de Productos de Alto Impacto:</strong> Galerías visuales optimizadas para fotografía de producto de alta calidad y fichas detalladas enfocadas en características únicas y beneficio emocional.</li>
+                <li><strong>Flujo de Venta Sofisticado:</strong> Sistema intuitivo de selección de variantes como aromas, tamaños o colores, con un carrito elegante que acompaña al usuario durante todo el recorrido.</li>
+                <li><strong>Integración de Identidad de Marca:</strong> Adaptación total de paleta, tono de comunicación y bloques de historia de marca y valores para generar conexión y lealtad.</li>
+                <li><strong>Optimización para Dispositivos Móviles:</strong> Experiencia de compra táctil fluida, pensada para usuarios que llegan desde Instagram, TikTok  u otras redes sociales. Tu marca no solo se ve profesional, se ve costosa. Transformamos tu catálogo en una experiencia de lujo que justifica el valor de tus productos</li>
+              </ul>
+              <div class="flex justify-center">
+                <a href="https://wa.me/542215047962?text=Hola!%20Quiero%20ver%20la%20demo%20de%20E-commerce%20Minimalista" target="_blank" rel="noopener" class="inline-block rounded-lg bg-trust-700 px-5 py-2 font-semibold text-white shadow transition hover:bg-trust-900">Quiero ver la Demo E-commerce</a>
+              </div>
+            </div>
+          </details>
+          <a href="https://velavita.site/" target="_blank" rel="noopener" class="demo-btn-main demo-btn-main--ecommerce rounded-xl bg-trust-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-trust-900 w-full mt-auto text-center">Ver Demo Real</a>
         </article>
 
         <!-- Plantilla Servicios -->
-        <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
+        <article class="template-card template-card--services flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
           <div class="mockup-mobile mx-auto mb-4">
             <div class="mockup-screen">
-              <img src="https://i.imgur.com/6QKQK8F.png" alt="Demo Servicios" class="mockup-img scroll-on-hover" loading="lazy">
+              <iframe src="https://braianruaimi.github.io/Violemcia-invisible-/" title="Vista previa real de Servicios Profesionales" class="mockup-iframe" loading="lazy"></iframe>
             </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900 mb-1">Servicios Profesionales</h3>
           <p class="text-sm text-slate-700 mb-3">Pensado para consultores, estudios y freelancers que necesitan mostrar valor y cerrar reuniones.</p>
-          <button class="demo-btn-main rounded-xl bg-trust-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-trust-900 w-full mt-auto">Ver Demo Real</button>
+          <details class="info-panel info-panel--services mb-3 w-full rounded-2xl border border-trust-100 bg-trust-100/30 p-3 text-slate-800">
+            <summary class="info-summary info-summary--services cursor-pointer list-none rounded-xl border border-trust-700 bg-white px-4 py-2 text-xs font-bold text-trust-700 transition hover:bg-trust-100/40">
+              <span class="info-summary__label">Info</span>
+              <span class="info-summary__icon" aria-hidden="true">↗</span>
+            </summary>
+            <div class="info-panel__content mt-4">
+              <h4 class="font-display mb-2 text-lg font-bold text-trust-900">💜 Especialización: Plataformas de Servicios y Conexión Humana</h4>
+              <ul class="list-disc pl-5 mb-3 text-sm text-slate-700">
+                <li><strong>Arquitectura de Conexión Emocional:</strong> Diseño de interfaces con psicología del color para generar calma y confianza. Navegación centrada en el usuario que busca ayuda o información específica de forma rápida.</li>
+                <li><strong>Sistema de Reserva y Turnos:</strong> Formularios inteligentes para captación de pacientes o clientes, integración de calendario para selección de servicios específicos y validación de datos en tiempo real.</li>
+                <li><strong>Copywriting Estratégico:</strong> Implementación de textos y storytelling que transforman una simple visita en una consulta profesional, con bloques informativos pensados para educar antes de la conversión.</li>
+                <li><strong>Privacidad y Acceso Directo:</strong> Canales de contacto seguros vía WhatsApp con mensajes preconfigurados y botones de acción estratégicamente ubicados.</li>
+                <li><strong>Optimización Multidispositivo:</strong> Web 100% responsiva para mantener una experiencia íntima y profesional tanto desde celular como desde computadora.</li>
+              </ul>
+              <p class="mb-4 text-xs text-slate-700">No solo hago webs que funcionan, hago webs que entienden a tu paciente o cliente y lo acompañan hasta la consulta.</p>
+              <div class="flex justify-center">
+                <a href="https://wa.me/542215047962?text=Hola!%20Quiero%20ver%20la%20demo%20de%20Servicios%20Profesionales" target="_blank" rel="noopener" class="inline-block rounded-lg bg-trust-700 px-5 py-2 font-semibold text-white shadow transition hover:bg-trust-900">Quiero ver la Demo de Servicios</a>
+              </div>
+            </div>
+          </details>
+          <a href="https://braianruaimi.github.io/Violemcia-invisible-/" target="_blank" rel="noopener" class="demo-btn-main demo-btn-main--services rounded-xl bg-trust-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-trust-900 w-full mt-auto text-center">Ver Demo Real</a>
         </article>
 
         <!-- Plantilla Food & Menu -->
-        <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 md:col-span-2 xl:col-span-1">
+        <article class="template-card template-card--food flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 md:col-span-2 xl:col-span-1">
           <div class="mockup-mobile mx-auto mb-4">
             <div class="mockup-screen">
-              <img src="https://i.imgur.com/1Q9Z1ZB.png" alt="Demo Food & Menu" class="mockup-img scroll-on-hover" loading="lazy">
+              <iframe src="https://braianruaimi.github.io/Food/" title="Vista previa real de Food & Menu" class="mockup-iframe" loading="lazy"></iframe>
             </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900 mb-1">Food &amp; Menu</h3>
           <p class="text-sm text-slate-700 mb-3">Hecho para restaurantes y cafeterías que quieren pedidos rápidos directo por WhatsApp.</p>
-          <button class="demo-btn-main rounded-xl bg-emeraldx-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-emeraldx-500 w-full mt-auto">Ver Demo Real</button>
+          <details class="info-panel info-panel--food mb-3 w-full rounded-2xl border border-emeraldx-100 bg-emeraldx-100/40 p-3 text-slate-800">
+            <summary class="info-summary info-summary--food cursor-pointer list-none rounded-xl border border-emeraldx-700 bg-white px-4 py-2 text-xs font-bold text-emeraldx-700 transition hover:bg-emeraldx-50">
+              <span class="info-summary__label">Info</span>
+              <span class="info-summary__icon" aria-hidden="true">↗</span>
+            </summary>
+            <div class="info-panel__content mt-4">
+              <h4 class="font-display text-lg font-bold text-emeraldx-700 mb-2">¿Qué incluye Food &amp; Menu?</h4>
+              <ul class="list-disc pl-5 mb-3 text-sm">
+                <li><strong>Menú Digital Inteligente:</strong> Interfaz optimizada para móviles (UX Gastronómica). Categorización dinámica (Comidas, Bebidas, Postres) con navegación rápida. Fotos de alta resolución con carga progresiva.</li>
+                <li><strong>Gestión de Pedidos en Tiempo Real:</strong> Carrito persistente, personalización de productos, cálculo automático de totales y envío.</li>
+                <li><strong>Checkout Automatizado a WhatsApp:</strong> Mensaje estructurado con detalle del pedido, datos del cliente, link a Maps opcional, forma de pago y total exacto.</li>
+                <li><strong>Logística y Entrega:</strong> Selector de método Delivery o Take Away con carga simplificada para el usuario.</li>
+                <li><strong>Infraestructura WebApp:</strong> Acceso desde QR o link, con opción de instalar en el celular como app.</li>
+                <li><strong>Panel CEO de Monitoreo:</strong> Medición de visitas, tasa de conversión y horarios pico.</li>
+              </ul>
+              <p class="text-xs text-slate-700 mb-4">Elimina el error humano y el tiempo perdido tipeando pedidos manualmente.</p>
+              <div class="flex justify-center">
+                <a href="https://wa.me/542215047962?text=Hola!%20Quiero%20ver%20la%20Demo%20de%20FOOD" target="_blank" rel="noopener" class="inline-block rounded-lg bg-emeraldx-700 px-5 py-2 font-semibold text-white shadow transition hover:bg-emeraldx-800">Quiero ver la Demo de FOOD</a>
+              </div>
+            </div>
+          </details>
+          <a href="https://braianruaimi.github.io/Food/" target="_blank" rel="noopener" class="demo-btn-main demo-btn-main--food rounded-xl bg-emeraldx-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-emeraldx-500 w-full mt-auto text-center">Ver Demo Real</a>
         </article>
       </div>
     </section>
@@ -541,7 +586,7 @@
     </article>
   </div>
 
-  <button id="floatingWhatsapp" class="whatsapp-float" type="button" aria-label="Abrir WhatsApp">
+  <a id="floatingWhatsapp" class="whatsapp-float" href="https://wa.me/5492215047962?text=Hola%20Braian!%20Quiero%20cotizar%20una%20plantilla%20web." target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
     <span class="whatsapp-float__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
         <path d="M20 5.5A10 10 0 0 0 4 14a10 10 0 0 0 1.5 5l-1 3 3-.9A10 10 0 1 0 20 5.5Z"/>
@@ -549,9 +594,9 @@
       </svg>
     </span>
     <span class="whatsapp-float__label">Cotizar por WhatsApp</span>
-  </button>
+  </a>
 
-  <button id="assistantToggle" class="assistant-float" type="button" aria-label="Abrir asistente IA">
+  <button id="assistantToggle" class="assistant-float" type="button" aria-label="Abrir asistente IA" onclick="const panel=document.getElementById('assistantPanel'); const isHidden=panel.classList.contains('hidden'); panel.classList.toggle('hidden'); panel.setAttribute('aria-hidden', isHidden ? 'false' : 'true'); document.getElementById('assistantInput')?.focus();">
     <span class="assistant-float__dot"></span>
     <span class="assistant-float__label">IA</span>
   </button>
@@ -562,7 +607,7 @@
         <p class="assistant-panel__eyebrow">Asistente IA</p>
         <h3 class="assistant-panel__title">Asesoria comercial de Impulso Emprendedor</h3>
       </div>
-      <button id="assistantClose" class="assistant-panel__close" type="button" aria-label="Cerrar asistente">Cerrar</button>
+      <button id="assistantClose" class="assistant-panel__close" type="button" aria-label="Cerrar asistente" onclick="const panel=document.getElementById('assistantPanel'); panel.classList.add('hidden'); panel.setAttribute('aria-hidden','true');">Cerrar</button>
     </div>
 
     <div id="assistantMessages" class="assistant-panel__messages"></div>
@@ -579,7 +624,7 @@
     </form>
   </section>
 
-  <button id="ceoPanelToggle" class="ceo-float" type="button" aria-label="Abrir panel CEO">CEO</button>
+  <button id="ceoPanelToggle" class="ceo-float" type="button" aria-label="Abrir panel CEO" onclick="const panel=document.getElementById('ceoPanel'); const isHidden=panel.classList.contains('hidden'); panel.classList.toggle('hidden'); panel.setAttribute('aria-hidden', isHidden ? 'false' : 'true');">CEO</button>
 
   <section id="ceoPanel" class="ceo-panel hidden" aria-hidden="true">
     <div class="ceo-panel__header">
@@ -587,12 +632,12 @@
         <p class="assistant-panel__eyebrow">Panel CEO</p>
         <h3 class="assistant-panel__title">Metricas de view, conversion y crecimiento</h3>
       </div>
-      <button id="ceoPanelClose" class="assistant-panel__close" type="button" aria-label="Cerrar panel CEO">Cerrar</button>
+      <button id="ceoPanelClose" class="assistant-panel__close" type="button" aria-label="Cerrar panel CEO" onclick="const panel=document.getElementById('ceoPanel'); panel.classList.add('hidden'); panel.setAttribute('aria-hidden','true');">Cerrar</button>
     </div>
 
     <div id="ceoLockScreen" class="ceo-lock-screen">
       <p class="ceo-lock-screen__copy">Ingresa la contraseña para ver las metricas internas.</p>
-      <form id="ceoUnlockForm" class="ceo-lock-screen__form">
+      <form id="ceoUnlockForm" class="ceo-lock-screen__form" onsubmit="event.preventDefault(); const pass=document.getElementById('ceoPasswordInput')?.value?.trim(); const ok=pass==='1234'; document.getElementById('ceoUnlockError')?.classList.toggle('hidden', ok); document.getElementById('ceoLockScreen')?.classList.toggle('hidden', ok); document.getElementById('ceoDashboard')?.classList.toggle('hidden', !ok);">
         <input id="ceoPasswordInput" class="assistant-panel__input" type="password" placeholder="Contraseña" inputmode="numeric" />
         <button class="assistant-panel__send" type="submit">Entrar</button>
       </form>
@@ -650,6 +695,6 @@
     <button id="applyUpdateBtn" class="update-toast__action" type="button">OK</button>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260422-modal-fix"></script>
 </body>
 </html>

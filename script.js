@@ -1,3 +1,13 @@
+// Mostrar/ocultar detalles de la tarjeta FOOD
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('food-toggle');
+  const details = document.getElementById('food-details');
+  if (toggle && details) {
+    toggle.addEventListener('click', () => {
+      details.classList.toggle('hidden');
+    });
+  }
+});
 // --- Calculador de Fuga de Ventas ---
 function calcularFugaVentas() {
   const slider = document.getElementById('fugaSlider');
@@ -60,6 +70,8 @@ const onboardingAssistantChat = document.getElementById('onboardingAssistantChat
 const assistantInput = document.getElementById('assistantInput');
 const assistantSendBtn = document.getElementById('assistantSendBtn');
 if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && onboardingPass && onboardingLoginBtn) {
+  const onboardingAssistantMessages = document.getElementById('assistantMessages');
+
   onboardingLoginBtn.addEventListener('click', function () {
     if (onboardingPass.value.trim() === 'cliente2026') {
       onboardingLogin.classList.add('hidden');
@@ -86,7 +98,7 @@ if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && on
       onboardingFields.reset?.();
     }, 3500);
   });
-  if (onboardingAssistantBtn && onboardingAssistantChat && assistantMessages && assistantInput && assistantSendBtn) {
+  if (onboardingAssistantBtn && onboardingAssistantChat && onboardingAssistantMessages && assistantInput && assistantSendBtn) {
     onboardingAssistantBtn.addEventListener('click', function () {
       onboardingAssistantChat.classList.toggle('hidden');
       assistantInput.focus();
@@ -95,8 +107,8 @@ if (onboardingForm && onboardingLogin && onboardingFields && onboardingMsg && on
       const msg = document.createElement('div');
       msg.className = 'assistant-msg ' + sender;
       msg.innerHTML = text;
-      assistantMessages.appendChild(msg);
-      assistantMessages.scrollTop = assistantMessages.scrollHeight;
+      onboardingAssistantMessages.appendChild(msg);
+      onboardingAssistantMessages.scrollTop = onboardingAssistantMessages.scrollHeight;
     }
     function iaReply(userText) {
       // Respuestas simuladas según contexto
@@ -495,6 +507,49 @@ const openPanel = (panel) => {
 const closePanel = (panel) => {
   panel?.classList.add('hidden');
   panel?.setAttribute('aria-hidden', 'true');
+};
+
+window.openFloatingWhatsApp = () => {
+  const template = resolveTemplate();
+  const nameValue = document.getElementById('clientName')?.value?.trim() || '';
+  const businessValue = document.getElementById('businessName')?.value?.trim() || '';
+  const goalValue = document.getElementById('goal')?.value?.trim() || '';
+
+  trackMetric('conversion');
+
+  const link = buildWhatsappLink({
+    name: nameValue,
+    business: businessValue,
+    template,
+    goal: goalValue,
+    source: 'Boton Flotante'
+  });
+
+  window.open(link, '_blank', 'noopener,noreferrer');
+};
+
+window.openAssistantPanelFallback = () => {
+  openPanel(assistantPanel);
+  assistantInput?.focus();
+};
+
+window.closeAssistantPanelFallback = () => {
+  closePanel(assistantPanel);
+};
+
+window.openCeoPanelFallback = () => {
+  openPanel(ceoPanel);
+
+  if (sessionStorage.getItem(STORAGE_KEYS.ceoUnlocked) === 'true') {
+    unlockCeoPanel();
+    return;
+  }
+
+  lockCeoPanel();
+};
+
+window.closeCeoPanelFallback = () => {
+  closePanel(ceoPanel);
 };
 
 const resolveTemplate = () => {

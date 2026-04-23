@@ -1,4 +1,4 @@
-const CACHE_NAME = 'impulso-emprendedor-v3';
+const CACHE_NAME = 'impulso-emprendedor-v4';
 
 const resolveBasePath = () => {
   const scopeUrl = new URL(self.registration.scope);
