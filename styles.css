@@ -444,6 +444,90 @@ body.electric-theme {
   color: var(--text-main);
 }
 
+.hero-nav {
+  position: sticky;
+  top: 14px;
+  z-index: 30;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 209, 255, 0.12);
+  border-radius: 22px;
+  background: rgba(7, 13, 28, 0.72);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.24);
+}
+
+.hero-nav__cta,
+.hero-nav__install {
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.16);
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-copy {
+  max-width: 680px;
+}
+
+.hero-badge {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 24px rgba(0, 209, 255, 0.12);
+}
+
+.hero-copy h1 {
+  max-width: 12ch;
+  text-wrap: balance;
+  letter-spacing: -0.03em;
+  text-shadow: 0 10px 32px rgba(2, 6, 23, 0.2);
+}
+
+.hero-actions {
+  align-items: center;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+  min-width: 220px;
+  justify-content: center;
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+}
+
+.hero-primary-btn {
+  box-shadow: 0 18px 40px rgba(0, 209, 255, 0.22), 0 0 24px rgba(0, 245, 176, 0.12);
+}
+
+.hero-secondary-btn {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.hero-impact {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-impact::before {
+  content: "";
+  position: absolute;
+  inset: -30% auto auto -10%;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(0, 209, 255, 0.16), transparent 66%);
+  pointer-events: none;
+}
+
+.hero-impact__item {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-impact__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 54%);
+}
+
 .site-bg {
   position: fixed;
   inset: 0;
@@ -957,6 +1041,23 @@ body.electric-theme {
     border-color: var(--electric);
     box-shadow: 0 24px 60px rgba(0,209,255,0.18);
   }
+
+    .pricing-card ul li {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .pricing-card ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 0.38rem;
+      height: 0.38rem;
+      border-radius: 999px;
+      background: var(--mint);
+      box-shadow: 0 0 12px rgba(0, 245, 176, 0.3);
+    }
   .cta-btn-pricing {
     font-size: 1rem;
     font-weight: 800;
@@ -1017,6 +1118,35 @@ body.electric-theme {
   text-align: center;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+}
+
+#metricas .ceo-metric-card {
+  min-height: 170px;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .hero-nav {
+    position: relative;
+    top: 0;
+  }
+
+  .hero-copy h1 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .hero-impact {
+    padding: 1.1rem;
+  }
 }
   .template-card {
     transition: transform 220ms cubic-bezier(.22,1,.36,1), box-shadow 220ms, border-color 220ms;
