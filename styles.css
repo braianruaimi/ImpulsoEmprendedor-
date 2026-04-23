@@ -939,6 +939,12 @@ body.electric-theme {
   display: none !important;
 }
 
+/* Fix robusto: nunca ocultar el calculador de fuga de ventas aunque tenga .hidden */
+#fuga-ventas.hidden {
+  display: block !important;
+}
+}
+
 @media (max-width: 768px) {
   .assistant-panel,
   .ceo-panel {
