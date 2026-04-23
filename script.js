@@ -1,3 +1,27 @@
+// --- Calculador de Fuga de Ventas ---
+function calcularFugaVentas() {
+  const slider = document.getElementById('fugaSlider');
+  const sliderVal = document.getElementById('fugaSliderVal');
+  const ticketInput = document.getElementById('fugaTicket');
+  const resultado = document.getElementById('fugaResultado');
+  if (!slider || !sliderVal || !ticketInput || !resultado) return;
+  function updateFuga() {
+    const mensajes = parseInt(slider.value, 10) || 0;
+    const ticket = parseInt(ticketInput.value, 10) || 0;
+    sliderVal.textContent = mensajes;
+    // Lógica: 30% de mensajes se pierden, 30 días al mes
+    const perdidos = Math.round(mensajes * 0.3 * 30 * ticket);
+    resultado.textContent = `Estás perdiendo aproximadamente $${perdidos.toLocaleString('es-AR')} pesos por mes por falta de automatización.`;
+  }
+  slider.addEventListener('input', updateFuga);
+  ticketInput.addEventListener('input', updateFuga);
+  updateFuga();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ...existing code...
+  calcularFugaVentas();
+});
 // --- Demo interactiva Freemium ---
 const demoColorPicker = document.getElementById('demoColorPicker');
 const demoLogoInput = document.getElementById('demoLogoInput');
