@@ -505,20 +505,25 @@ const resolveTemplate = () => {
   return selectedTemplateKey;
 };
 
-const buildWhatsappLink = ({ name = '', business = '', template = '', goal = '', source = '' }) => {
+/**
+ * Genera el link de WhatsApp con mensaje profesional y estructurado para cierre comercial.
+ * @param {Object} params - Parámetros del formulario.
+ * @param {string} params.business - Nombre del negocio.
+ * @param {string} params.template - Clave de plantilla elegida.
+ * @param {string} params.goal - Objetivo del cliente.
+ * @returns {string} URL lista para abrir WhatsApp.
+ */
+function buildWhatsappLink({ business = '', template = '', goal = '' }) {
+  // Etiqueta legible para la plantilla
   const templateLabel = previewData[template]?.tag || 'Plantilla web personalizada';
-  const messageLines = [
-    'Hola, quiero digitalizar mi negocio con una plantilla web.',
-    name ? `Mi nombre es: ${name}` : '',
-    business ? `Negocio: ${business}` : '',
-    `Plantilla de interés: ${templateLabel}`,
-    goal ? `Objetivo principal: ${goal}` : '',
-    source ? `Canal de contacto: ${source}` : '',
-    '',
-    'Quiero recibir una propuesta y siguientes pasos para empezar.'
-  ].filter(Boolean);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageLines.join('\n'))}`;
-};
+  // Mensaje estructurado y profesional
+  const msg =
+    `Hola Braian! Vengo de Impulso Emprendedor. ` +
+    (business ? `Mi negocio es: ${business}. ` : '') +
+    `Me interesa el modelo: ${templateLabel}. ` +
+    (goal ? `Mi objetivo es: ${goal}.` : '');
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
 // --- ANIMACIÓN DE MÉTRICAS ---
 function animateCountUp(element, target, duration = 1200) {
   let start = 0;

@@ -1,11 +1,11 @@
 {
-  "name": "Impulso Emprendedor - Catálogo de Plantillas Web",
-  "short_name": "Impulso Emprendedor",
+  "name": "Impulso Emprendedor",
+  "short_name": "Impulso",
   "description": "Plantillas web listas para vender: ecommerce, servicios y food menu con carrito a WhatsApp y panel de métricas.",
   "start_url": "/ImpulsoEmprendedor-/",
   "scope": "/ImpulsoEmprendedor-/",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "theme_color": "#050816",
   "background_color": "#050816",
   "icons": [
@@ -13,7 +13,7 @@
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23050816' width='192' height='192'/><circle fill='%2300d1ff' cx='96' cy='96' r='56'/><text x='50%' y='50%' font-size='80' font-weight='bold' fill='%23050816' text-anchor='middle' dominant-baseline='central'>IE</text></svg>",
       "sizes": "192x192",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%23050816' width='512' height='512'/><circle fill='%2300d1ff' cx='256' cy='256' r='164'/><text x='50%' y='50%' font-size='200' font-weight='bold' fill='%23050816' text-anchor='middle' dominant-baseline='central'>IE</text></svg>",
@@ -22,6 +22,8 @@
       "purpose": "any maskable"
     }
   ],
+    "lang": "es-AR",
+    "prefer_related_applications": false,
   "screenshots": [
     {
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%23050816' width='540' height='720'/><rect fill='%2300d1ff' width='540' height='100'/><text x='270' y='50' font-size='32' font-weight='bold' fill='%23050816' text-anchor='middle' dominant-baseline='central'>Impulso Emprendedor</text></svg>",
