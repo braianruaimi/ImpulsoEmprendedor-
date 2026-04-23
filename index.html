@@ -245,46 +245,26 @@
       </div>
     </section>
 
-    <!-- ANTES Y DESPUÉS -->
-    <section id="antes-despues" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
-      <div class="mb-8">
-        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Antes y Después</p>
-        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">¿Cómo se ve tu negocio digitalizado?</h2>
-        <p class="mt-2 text-slate-500">Visualiza el cambio: de un Instagram desordenado a una web profesional.</p>
-      </div>
-      <div class="antes-despues-comparador rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 flex flex-col md:flex-row gap-6 items-center justify-center">
-        <div class="antes-box flex-1 flex flex-col items-center">
-          <span class="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">Antes</span>
-          <img src="https://i.imgur.com/6QKQK8F.png" alt="Instagram desordenado" class="rounded-xl shadow-md w-full max-w-xs object-cover" loading="lazy">
-          <span class="mt-2 text-xs text-slate-500">Instagram típico de emprendedor</span>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" class="text-emeraldx-700"><path d="M18 4v28M4 18h28"/></svg>
-        </div>
-        <div class="despues-box flex-1 flex flex-col items-center">
-          <span class="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">Después</span>
-          <img src="https://i.imgur.com/1Q9Z1ZB.png" alt="Web profesional" class="rounded-xl shadow-md w-full max-w-xs object-cover" loading="lazy">
-          <span class="mt-2 text-xs text-slate-500">Web profesional y ordenada</span>
-        </div>
-      </div>
-    </section>
 
     <section id="catalogo" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="mb-8">
-        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Galeria de plantillas</p>
-        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Elige el modelo que mejor acelera tu tipo de negocio</h2>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-700">Galería de plantillas</p>
+        <h2 class="font-display text-3xl font-bold text-trust-900 lg:text-4xl">Elige el modelo ideal para tu negocio</h2>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
-          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-trust-900 to-trust-500 p-4 text-white">
-            <p class="text-xs font-bold uppercase tracking-[0.18em]">E-commerce Minimalista</p>
-            <p class="mt-3 max-w-[20ch] text-sm text-trust-100">Perfecto para marcas de productos fisicos que quieren vender mas con una experiencia limpia.</p>
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-trust-900 to-trust-500 p-0 flex items-center justify-center relative">
+            <img src="https://i.imgur.com/1Q9Z1ZB.png" alt="Ejemplo web E-commerce" class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-80" style="z-index:1;" loading="lazy">
+            <div class="relative z-10 p-4">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-white drop-shadow">E-commerce Minimalista</p>
+              <p class="mt-3 max-w-[20ch] text-sm text-white drop-shadow">Perfecto para marcas de productos físicos que quieren vender más con una experiencia limpia.</p>
+            </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900">Modelo E-commerce Minimalista</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Ideal para tiendas de moda, belleza o tecnologia que necesitan aumentar ticket promedio y conversion con una navegacion simple.</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Ideal para tiendas de moda, belleza o tecnología que necesitan aumentar ticket promedio y conversión con una navegación simple.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
-            <span class="rounded-full bg-trust-100 px-3 py-1 text-xs font-bold text-trust-700">Productos fisicos</span>
+            <span class="rounded-full bg-trust-100 px-3 py-1 text-xs font-bold text-trust-700">Productos físicos</span>
             <div class="flex items-center gap-2">
               <button class="preview-btn rounded-lg bg-trust-700 px-4 py-2 text-sm font-bold text-white transition hover:bg-trust-900" data-template="ecommerce">Vista Previa</button>
               <a href="#contacto" class="choose-template-btn rounded-lg border border-trust-100 px-4 py-2 text-sm font-bold text-trust-700 transition hover:border-trust-500 hover:text-trust-900" data-template="ecommerce">Quiero este</a>
@@ -293,12 +273,15 @@
         </article>
 
         <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50">
-          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-slate-800 to-slate-500 p-4 text-white">
-            <p class="text-xs font-bold uppercase tracking-[0.18em]">Servicios Profesionales</p>
-            <p class="mt-3 max-w-[20ch] text-sm text-slate-200">Pensado para consultores, estudios y freelancers que necesitan mostrar valor y cerrar reuniones.</p>
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-slate-800 to-slate-500 p-0 flex items-center justify-center relative">
+            <img src="https://i.imgur.com/6QKQK8F.png" alt="Ejemplo web Servicios" class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-80" style="z-index:1;" loading="lazy">
+            <div class="relative z-10 p-4">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-white drop-shadow">Servicios Profesionales</p>
+              <p class="mt-3 max-w-[20ch] text-sm text-white drop-shadow">Pensado para consultores, estudios y freelancers que necesitan mostrar valor y cerrar reuniones.</p>
+            </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900">Modelo Servicios Profesionales</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Diseñado para quienes venden confianza: agenda integrada, portafolio y bloques persuasivos para captar clientes premium.</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Diseñado para quienes venden confianza: agenda integrada, portafolio y bloques persuasivos para captar clientes premium.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
             <span class="rounded-full bg-slate-200 px-3 py-1 text-xs font-bold text-slate-700">Agenda y portfolio</span>
             <div class="flex items-center gap-2">
@@ -309,12 +292,15 @@
         </article>
 
         <article class="template-card flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 md:col-span-2 xl:col-span-1">
-          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-emeraldx-700 to-emeraldx-500 p-4 text-white">
-            <p class="text-xs font-bold uppercase tracking-[0.18em]">Food &amp; Menu</p>
-            <p class="mt-3 max-w-[20ch] text-sm text-emeraldx-100">Hecho para restaurantes y cafeterias que quieren pedidos rapidos directo por WhatsApp.</p>
+          <div class="mb-4 aspect-[16/10] rounded-xl bg-gradient-to-br from-emeraldx-700 to-emeraldx-500 p-0 flex items-center justify-center relative">
+            <img src="https://i.imgur.com/1Q9Z1ZB.png" alt="Ejemplo web Food & Menu" class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-80" style="z-index:1;" loading="lazy">
+            <div class="relative z-10 p-4">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-white drop-shadow">Food &amp; Menu</p>
+              <p class="mt-3 max-w-[20ch] text-sm text-white drop-shadow">Hecho para restaurantes y cafeterías que quieren pedidos rápidos directo por WhatsApp.</p>
+            </div>
           </div>
           <h3 class="font-display text-xl font-bold text-slate-900">Modelo Food &amp; Menu</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Convierte cada visita en pedido con menu visual, carrito de combos y boton directo a WhatsApp para confirmar en segundos.</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">Convierte cada visita en pedido con menú visual, carrito de combos y botón directo a WhatsApp para confirmar en segundos.</p>
           <div class="mt-5 flex items-center justify-between gap-3">
             <span class="rounded-full bg-emeraldx-100 px-3 py-1 text-xs font-bold text-emeraldx-700">Restaurantes y food</span>
             <div class="flex items-center gap-2">
@@ -326,30 +312,6 @@
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
-      <div class="grid gap-6 rounded-3xl border border-slate-200 bg-trust-900 p-6 text-white shadow-2xl shadow-trust-900/20 lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
-        <article>
-          <p class="text-sm font-bold uppercase tracking-[0.16em] text-trust-100">Diferencial</p>
-          <h2 class="mt-2 font-display text-3xl font-bold">Una base lista para crecer, no una pagina descartable.</h2>
-          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-trust-100">La idea es que puedas salir rapido ahora y seguir mejorando despues sin rehacer todo. Por eso el enfoque combina diseño, conversion y estructura tecnica simple de mantener.</p>
-        </article>
-
-        <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">Mensaje claro</p>
-            <p class="mt-2 text-sm text-white">Tu propuesta de valor se entiende en segundos, sin ruido ni bloques genericos.</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">CTA con contexto</p>
-            <p class="mt-2 text-sm text-white">Los botones y formularios empujan al usuario en el momento correcto del recorrido.</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
-            <p class="text-xs font-bold uppercase tracking-wide text-trust-100">Lista para optimizar</p>
-            <p class="mt-2 text-sm text-white">Puedes sumar automatizaciones, pagos, campañas o tracking sin rehacer la base.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="contacto" class="mx-auto max-w-6xl px-6 pb-14 lg:px-8">
       <div class="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60 lg:grid-cols-[1fr_1fr] lg:p-8">
