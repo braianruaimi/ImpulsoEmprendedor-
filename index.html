@@ -1,40 +1,85 @@
-      <!-- Barra de menú inferior tipo App (solo móvil) -->
-      <nav id="appNavBar" class="app-navbar fixed bottom-0 left-0 right-0 z-40 flex justify-around items-center bg-white border-t border-slate-200 shadow-lg py-2 px-2 md:hidden" role="navigation" aria-label="Menú principal">
-        <a href="#catalogo" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-          <span class="material-icons" aria-hidden="true">view_quilt</span>
-          Plantillas
-        </a>
-        <a href="#metricas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-          <span class="material-icons" aria-hidden="true">insights</span>
-          Métricas
-        </a>
-        <a href="#fuga-ventas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-          <span class="material-icons" aria-hidden="true">trending_down</span>
-          Fuga
-        </a>
-        <a href="#contacto" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
-          <span class="material-icons" aria-hidden="true">chat</span>
-          WhatsApp
-        </a>
-      </nav>
-    <!-- Calculador de Fuga de Ventas -->
-    <section id="fuga-ventas" class="mx-auto max-w-2xl px-6 pb-14 lg:px-8">
-      <div class="rounded-3xl border border-emeraldx-700 bg-white p-8 shadow-xl shadow-emeraldx-700/10 flex flex-col gap-6 items-center">
-        <h2 class="font-display text-2xl font-bold text-trust-900 mb-2 text-center">Calcula tu Fuga de Ventas</h2>
-        <p class="text-base text-slate-700 text-center mb-2">¿Cuántos mensajes de clientes recibes por día?</p>
-        <div class="w-full flex flex-col items-center gap-2">
-          <input type="range" id="fugaSlider" min="1" max="100" value="10" class="w-full accent-emeraldx-700" />
-          <span class="text-sm text-trust-700">Mensajes por día: <span id="fugaSliderVal">10</span></span>
-        </div>
-        <div class="w-full flex flex-col items-center gap-2">
-          <label for="fugaTicket" class="text-sm text-slate-700">Ticket promedio ($):</label>
-          <input type="number" id="fugaTicket" min="100" max="100000" value="5000" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-40 text-center" />
-        </div>
-        <div class="mt-4 w-full text-center">
-          <span id="fugaResultado" class="text-lg font-bold text-emeraldx-700">Estás perdiendo aproximadamente $45,000 pesos por mes por falta de automatización.</span>
-        </div>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catalogo de Plantillas Web | Impulso Emprendedor</title>
+  <meta name="description" content="Plantillas web listas para vender: ecommerce, servicios y food menu con carrito a WhatsApp y panel de metricas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Outfit", "sans-serif"]
+          },
+          colors: {
+            trust: {
+              900: "#081121",
+              700: "#00d1ff",
+              500: "#4f7cff",
+              100: "#08243b"
+            },
+            emeraldx: {
+              700: "#00f5b0",
+              500: "#12d8a0",
+              100: "#063128"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#050816" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Impulso Emprendedor" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="electric-theme bg-slate-950 text-slate-100 antialiased">
+  <!-- Barra de menú inferior tipo App (solo móvil) -->
+  <nav id="appNavBar" class="app-navbar fixed bottom-0 left-0 right-0 z-40 flex justify-around items-center bg-white border-t border-slate-200 shadow-lg py-2 px-2 md:hidden" role="navigation" aria-label="Menú principal">
+    <a href="#catalogo" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
+      <span class="material-icons" aria-hidden="true">view_quilt</span>
+      Plantillas
+    </a>
+    <a href="#metricas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
+      <span class="material-icons" aria-hidden="true">insights</span>
+      Métricas
+    </a>
+    <a href="#fuga-ventas" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
+      <span class="material-icons" aria-hidden="true">trending_down</span>
+      Fuga
+    </a>
+    <a href="#contacto" class="app-navbar__item flex flex-col items-center text-xs font-semibold text-slate-700 hover:text-trust-700 transition">
+      <span class="material-icons" aria-hidden="true">chat</span>
+      WhatsApp
+    </a>
+  </nav>
+  <!-- Calculador de Fuga de Ventas -->
+  <section id="fuga-ventas" class="mx-auto max-w-2xl px-6 pb-14 lg:px-8">
+    <div class="rounded-3xl border border-emeraldx-700 bg-white p-8 shadow-xl shadow-emeraldx-700/10 flex flex-col gap-6 items-center">
+      <h2 class="font-display text-2xl font-bold text-trust-900 mb-2 text-center">Calcula tu Fuga de Ventas</h2>
+      <p class="text-base text-slate-700 text-center mb-2">¿Cuántos mensajes de clientes recibes por día?</p>
+      <div class="w-full flex flex-col items-center gap-2">
+        <input type="range" id="fugaSlider" min="1" max="100" value="10" class="w-full accent-emeraldx-700" />
+        <span class="text-sm text-trust-700">Mensajes por día: <span id="fugaSliderVal">10</span></span>
       </div>
-    </section>
+      <div class="w-full flex flex-col items-center gap-2">
+        <label for="fugaTicket" class="text-sm text-slate-700">Ticket promedio ($):</label>
+        <input type="number" id="fugaTicket" min="100" max="100000" value="5000" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-40 text-center" />
+      </div>
+      <div class="mt-4 w-full text-center">
+        <span id="fugaResultado" class="text-lg font-bold text-emeraldx-700">Estás perdiendo aproximadamente $45,000 pesos por mes por falta de automatización.</span>
+      </div>
+    </div>
+  </section>
+  <!-- ...existing code... -->
 <!doctype html>
 <html lang="es">
 <head>
